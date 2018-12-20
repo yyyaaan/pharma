@@ -1,0 +1,164 @@
+---
+title: "Moi!"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+---
+
+```{r setup, include=FALSE}
+library(visNetwork)
+library(flexdashboard)
+
+
+library(ggplot2)
+library(plotly)
+library(plyr)
+
+# Make some noisily increasing data
+set.seed(955)
+dat <- data.frame(cond = rep(c("A", "B"), each=10),
+                  xvar = 1:20 + rnorm(20,sd=3),
+                  yvar = 1:20 + rnorm(20,sd=3))
+```
+
+Cheatsheet
+=======================================================================
+
+Column
+-----------------------------------------------------------------------
+
+### SAS Documentations
+
+- [SAS Procedures](https://go.documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.4&docsetId=allprodsproc&docsetTarget=procedures.htm&locale=en)
+
+- [SAS Data Steps](https://go.documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.4&docsetId=lestmtsref&docsetTarget=p08st7rzfn0dgin1fml8hq40hlho.htm&locale=en)
+
+- [Functions](https://go.documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.4&docsetId=lefunctionsref&docsetTarget=n01f5qrjoh9h4hn1olbdpb5pr2td.htm&locale=en)
+
+### Handy Functions
+
+Date Diff: `intck('day', STARTDT, ENDDT)`
+
+
+### PROC output styles
+
+<pre>
+PROC MEANS noprint data=input;
+	var bmi;
+	by cohort;
+	output out = output (drop = _freq_ _type_);
+RUN;
+</pre>
+<pre>
+PROC FREQ data=input
+  table var1 * var2 / out = output;
+RUN;
+</pre>
+
+### PROC Transpose wide->long
+
+<pre>
+PROC TRANSPOSE data=input 
+               out=output (drop=_NAME_ _label_);
+	by cohort;
+	id _stat_;
+RUN;
+</pre>
+
+
+
+Column
+-----------------------------------------------------------------------
+
+### Some Cheatsheet here
+
+
+Column
+-----------------------------------------------------------------------
+
+### CDISC.org References
+
+- [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3)
+
+- [SDTM v1.7](https://www.cdisc.org/standards/foundational/sdtm/sdtm-v1-7)
+
+- [CDISC Glossary](https://www.cdisc.org/system/files/members/standard/foundational/glossary/CDISC%20Glossary%20v11.pdf)
+
+### Constraining Slope with stat_smooth
+
+```{r}
+n <- 20
+x1 <- rnorm(n); x2 <- rnorm(n)
+y1 <- 2 * x1 + rnorm(n)
+y2 <- 3 * x2 + (2 + rnorm(n))
+A <- as.factor(rep(c(1, 2), each = n))
+df <- data.frame(x = c(x1, x2), y = c(y1, y2), A = A)
+fm <- lm(y ~ x + A, data = df)
+
+p <- ggplot(data = cbind(df, pred = predict(fm)), aes(x = x, y = y, color = A))
+p <- p + geom_point() + geom_line(aes(y = pred))
+ggplotly(p)
+```
+
+GCP...
+=======================================================================
+
+Column
+-----------------------------------------------------------------------
+
+### SDTM at a Glance
+
+```{r}
+keys <- c("Data Class", "Variable Roles", "Core Variables")
+
+grp01 <- data.frame(id = 1:3,
+                   label = keys,
+                   title = c("define tables", "define variables", "some "),
+                   group = keys,
+                   shape = c("database", "circle", "star"))
+grp11 <- data.frame(id = 11:16,
+                   label = c("Inteventions",  "Events", "Findings", "Domain", "Trial Design", "Relationship"),
+                   title = NA,
+                   group = keys[1],
+                   shape = "ellipse")
+grp12 <- data.frame(id = 21:24,
+                   label = c("Identifier", "Topic", "Timing", "Qualifier"),
+                   title = NA,
+                   group = keys[2],
+                   shape = "ellipse")
+grp13 <- data.frame(id = 31:33,
+                   label = c("Required", "Expected", "Permissible"),
+                   title = NA,
+                   group = keys[3], 
+                   shape = "text")
+grp21 <- data.frame(id = 101:114,
+                   label = c("CM", "EX", "AE", "DS", "VS", "PE", "DM", "CO", "SV", "TA", "TI", "TV", "RELREC", "SUPP--"),
+                   title = c("CM Conmeds", "EX Exposure", "AE Adverse Events", "DS Disposition Events", "VS Vital Signs", "PE Pysical Exam", "DM Demographics", "CO Comments", "SV Subject Visits", "TA Trial Arms", "TI Trial Inclusion", "TV Trial Visits", "RELREC Related Records", "SUPP-- Supplemental Qualifiers"),
+                   group = "- tables",
+                   shape = "box")
+grp22 <- data.frame(id = 201:212,
+                    label = c("STUDYID", "USUBJID", "--SEQ", "LBTEST", "AETERM", "CMTRT", "LBDTC", "AESTDTC", "EXENDTC", "LBORRES", "AESEV", "CMDOSE"),
+                    title = c("STUDYID Study ID", "USUBJID Subject ID", "--SEQ Sequence ID", "LBTEST Lab Test Name", "AETERM Adverse Event Term", "CMTRT Reported Drug Name", "LBDTC Lab Assessment Date", "AESTDTC Adverse Event Start Date", "EXENDTC Exposure End Date", "LBORRES Lab Test Result", "AESEV Adverse Event Severity", "CMDOSE Conmed Dose"),
+                    group = "- variables",
+                    shape = "box")
+
+nodes <- rbind(grp01, grp11, grp12, grp13, grp21, grp22)
+edges <- data.frame(from = c(rep(1, 6), rep(2, 4), rep(3, 3),
+                             rep(11,2), rep(12,2), rep(13,2), rep(14,3), rep(15,3), rep(16,2),
+                             rep(21,3), rep(22,3), rep(23,3), rep(24,3)),
+                    to   = c(11:16, 21:24, 31:33,
+                             101:114,
+                             201:212))
+
+visNetwork(nodes, edges, width = "100%", height = "400px") %>%
+  visOptions(highlightNearest = list(enabled = T, hover = T), 
+             selectedBy = "group")  %>%
+  visLayout(randomSeed = 69)
+```
+
+Column
+-----------------------------------------------------------------------
+
+### Something to Cover
+
+
