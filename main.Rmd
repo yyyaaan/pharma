@@ -3,22 +3,25 @@ title: "Moi!"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
 library(visNetwork)
 library(flexdashboard)
+library(shiny)
+library(tidyverse)
+library(DT)
 
-
-library(ggplot2)
-library(plotly)
-library(plyr)
-
-# Make some noisily increasing data
-set.seed(955)
-dat <- data.frame(cond = rep(c("A", "B"), each=10),
-                  xvar = 1:20 + rnorm(20,sd=3),
-                  yvar = 1:20 + rnorm(20,sd=3))
+getDataType <- function(type = c("char")){
+  result <- NULL
+  for(i in 1:length(type)){
+    if(type[i] == "Char") result <- c(result, "Char(200)")
+    else if(type[i] == "Num") result <- c(result, "Num(10)")
+    else result <- c(result, "/*ERROR*/")
+  }
+  result
+}
 ```
 
 Cheatsheet
@@ -35,9 +38,16 @@ Column
 
 - [Functions](https://go.documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.4&docsetId=lefunctionsref&docsetTarget=n01f5qrjoh9h4hn1olbdpb5pr2td.htm&locale=en)
 
-### Handy Functions
+[SAS EG Keyboard](http://support.sas.com/documentation/cdl/en/hostwin/69955/HTML/default/viewer.htm#p0726xzb9e7fp7n1sjiml5m2cedu.htm)
 
-Date Diff: `intck('day', STARTDT, ENDDT)`
+### Working with Formats
+
+
+<pre>
+ENDDT = input(substr(str, 1, 10), yymmdd10.);
+format ENDDT yymmdd10.;
+ADY = intck('day', STARTDT, ENDDT);
+</pre>
 
 
 ### PROC output styles
@@ -47,9 +57,6 @@ PROC MEANS noprint data=input;
 	var bmi;
 	by cohort;
 	output out = output (drop = _freq_ _type_);
-RUN;
-</pre>
-<pre>
 PROC FREQ data=input
   table var1 * var2 / out = output;
 RUN;
@@ -72,32 +79,29 @@ Column
 
 ### Some Cheatsheet here
 
+N/A
 
 Column
 -----------------------------------------------------------------------
 
 ### CDISC.org References
 
-- [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3)
+- [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3) | [v3.2 pdf](https://www.cdisc.org/system/files/members/standard/foundational/sdtmig/sdtmig_20v3.2_20noportfolio.pdf)
 
 - [SDTM v1.7](https://www.cdisc.org/standards/foundational/sdtm/sdtm-v1-7)
 
+- [SDTM Controlled Terminology](https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html)
+
 - [CDISC Glossary](https://www.cdisc.org/system/files/members/standard/foundational/glossary/CDISC%20Glossary%20v11.pdf)
 
-### Constraining Slope with stat_smooth
+<center>
+[AE](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#Adverse+Events) | [EX](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#Exposure)
+</center>
+
+### Nothing
 
 ```{r}
-n <- 20
-x1 <- rnorm(n); x2 <- rnorm(n)
-y1 <- 2 * x1 + rnorm(n)
-y2 <- 3 * x2 + (2 + rnorm(n))
-A <- as.factor(rep(c(1, 2), each = n))
-df <- data.frame(x = c(x1, x2), y = c(y1, y2), A = A)
-fm <- lm(y ~ x + A, data = df)
-
-p <- ggplot(data = cbind(df, pred = predict(fm)), aes(x = x, y = y, color = A))
-p <- p + geom_point() + geom_line(aes(y = pred))
-ggplotly(p)
+renderPrint("nothing to show yet")
 ```
 
 GCP...
@@ -161,4 +165,61 @@ Column
 
 ### Something to Cover
 
+to be furnished
 
+
+SDTM {style="position:relative; height:auto"}
+=======================================================================
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+tables <- readRDS("sdtm_domain.rds")
+catlog <- tables[[1]]
+
+selectInput("sdtm_domain", "Domains", choices = sort(catlog$Name))
+
+renderText(paste(nrow(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]]), "variables"))
+```
+
+<hr />
+
+```{r}
+checkboxGroupInput("sdtm_core", "Generate SQL", choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"))
+
+renderPrint(
+  tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
+    filter(Core %in% input$sdtm_core) %>%
+    mutate(Sql = paste0('/*',pull(.,7) ,'*/\t',pull(.,1), " ", getDataType(pull(., 3)), ' "', pull(., 2), '"')) %>%
+    pull(Sql) %>% 
+    paste(collapse = ", \n") %>%
+    cat()
+)
+```
+
+Retain (all variables)
+
+```{r}
+renderPrint(
+  tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
+    pull(1) %>%
+    paste(collapse = " ")
+)
+```
+
+<hr />
+
+Based on [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3)
+
+Column {style="height:auto; min-height: 300pc; overflow: auto;"}
+-----------------------------------------------------------------------
+
+### Tables
+
+```{r}
+renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+                    options = list(pageLength = 50, dom = 'lfpt'))
+```
+
+end.
