@@ -2,7 +2,7 @@
 title: "Moi!"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    vertical_layout: scroll
 runtime: shiny
 ---
 
@@ -12,6 +12,8 @@ library(flexdashboard)
 library(shiny)
 library(tidyverse)
 library(DT)
+
+library(shinyWidgets)
 
 getDataType <- function(type = c("char")){
   result <- NULL
@@ -24,8 +26,34 @@ getDataType <- function(type = c("char")){
 }
 ```
 
-Cheatsheet
+Cheatsheet {data-orientation=columns}
 =======================================================================
+
+Column
+-----------------------------------------------------------------------
+
+### R Links
+
+- [R-Markdown Dashboard](https://rmarkdown.rstudio.com/lesson-12.html) | [R-Markdown Webstie](https://rmarkdown.rstudio.com/rmarkdown_websites.html)
+
+- [R-Markdown Styling](https://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style) | [Bootstrap Themes](https://bootswatch.com/)
+
+- [Shiny Server Manual](http://docs.rstudio.com/shiny-server/)
+
+### Tidyverse
+
+Modify, Subset, Keep/Drop, Extract, Summarize
+<p><pre>
+datatable %>% 
+  mutate(new_var = fun(old_vars)) %>%
+  filter(var = cond) %>%
+  select(var1, var2) %>%  
+  pull(var1) %>% 
+  summarize_at(c("var1", "var2"), fun)
+</pre></p>
+
+
+
 
 Column
 -----------------------------------------------------------------------
@@ -38,21 +66,19 @@ Column
 
 - [Functions](https://go.documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.4&docsetId=lefunctionsref&docsetTarget=n01f5qrjoh9h4hn1olbdpb5pr2td.htm&locale=en)
 
-[SAS EG Keyboard](http://support.sas.com/documentation/cdl/en/hostwin/69955/HTML/default/viewer.htm#p0726xzb9e7fp7n1sjiml5m2cedu.htm)
 
 ### Working with Formats
 
-
-<pre>
+<p><pre>
 ENDDT = input(substr(str, 1, 10), yymmdd10.);
 format ENDDT yymmdd10.;
 ADY = intck('day', STARTDT, ENDDT);
-</pre>
+</pre></p>
 
 
 ### PROC output styles
 
-<pre>
+<p><pre>
 PROC MEANS noprint data=input;
 	var bmi;
 	by cohort;
@@ -60,26 +86,23 @@ PROC MEANS noprint data=input;
 PROC FREQ data=input
   table var1 * var2 / out = output;
 RUN;
-</pre>
+</pre></p>
 
 ### PROC Transpose wide->long
 
-<pre>
+<p><pre>
 PROC TRANSPOSE data=input 
                out=output (drop=_NAME_ _label_);
 	by cohort;
 	id _stat_;
 RUN;
-</pre>
+</pre></p>
 
 
 
-Column
------------------------------------------------------------------------
 
-### Some Cheatsheet here
 
-N/A
+
 
 Column
 -----------------------------------------------------------------------
@@ -103,11 +126,13 @@ Column
 ```{r}
 renderPrint("nothing to show yet")
 ```
+<p></p>
 
-GCP...
+
+GCP {data-orientation=rows}
 =======================================================================
 
-Column
+Row {data-height=600}
 -----------------------------------------------------------------------
 
 ### SDTM at a Glance
@@ -154,51 +179,47 @@ edges <- data.frame(from = c(rep(1, 6), rep(2, 4), rep(3, 3),
                              101:114,
                              201:212))
 
-visNetwork(nodes, edges, width = "100%", height = "400px") %>%
+visNetwork(nodes, edges, width = "100%", height = "600px") %>%
   visOptions(highlightNearest = list(enabled = T, hover = T), 
              selectedBy = "group")  %>%
   visLayout(randomSeed = 69)
 ```
 
-Column
------------------------------------------------------------------------
 
 ### Something to Cover
 
 to be furnished
 
 
-SDTM {style="position:relative; height:auto"}
+SDTM
 =======================================================================
 
-Column {.sidebar}
+Column {.sidebar data-width=360}
 -----------------------------------------------------------------------
 
 ```{r}
 tables <- readRDS("sdtm_domain.rds")
 catlog <- tables[[1]]
 
-selectInput("sdtm_domain", "Domains", choices = sort(catlog$Name))
+pickerInput("sdtm_domain", "Domains", 
+            choices = catlog %>% 
+              select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
+              spread(key = "Class", value = "Name") %>% select(-id) %>%
+              as.list() %>% lapply(function(x) x[!is.na(x)]),
+            options = list(`live-search` = TRUE))
 
 renderText(paste(nrow(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]]), "variables"))
+renderText(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
+             count(Core) %>%
+             mutate(text = paste(Core, n)) %>%
+             pull(text) %>%
+             paste(collapse = " | "))
 ```
+
 
 <hr />
 
-```{r}
-checkboxGroupInput("sdtm_core", "Generate SQL", choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"))
-
-renderPrint(
-  tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
-    filter(Core %in% input$sdtm_core) %>%
-    mutate(Sql = paste0('/*',pull(.,7) ,'*/\t',pull(.,1), " ", getDataType(pull(., 3)), ' "', pull(., 2), '"')) %>%
-    pull(Sql) %>% 
-    paste(collapse = ", \n") %>%
-    cat()
-)
-```
-
-Retain (all variables)
+All variable names (RETAIN)
 
 ```{r}
 renderPrint(
@@ -210,16 +231,41 @@ renderPrint(
 
 <hr />
 
+
 Based on [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3)
 
-Column {style="height:auto; min-height: 300pc; overflow: auto;"}
+Column
 -----------------------------------------------------------------------
 
 ### Tables
 
 ```{r}
-renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
-                    options = list(pageLength = 50, dom = 'lfpt'))
+dropdownButton(
+  tags$h3("Generate SQL"),
+  
+  awesomeCheckboxGroup(inputId = "sdtm_core", label = "",
+                       choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"),
+                       inline =  TRUE),
+  
+  
+  tags$hr(),
+  
+  renderPrint(
+    tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
+      filter(Core %in% input$sdtm_core) %>%
+      mutate(Sql = paste0('/*',pull(.,7) ,'*/\t',pull(.,1), " ", getDataType(pull(., 3)), ' "', pull(., 2), '"')) %>%
+      pull(Sql) %>% 
+      paste(collapse = ", \n") %>%
+      cat()),
+  
+  circle = F, status = "primary", label = "SQL-code", width = "600px"
+)
+
 ```
 
-end.
+```{r}
+renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+                    options = list(pageLength = 999, dom = 'ft'))
+```
+
+<center>= = = end = = =</center>

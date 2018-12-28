@@ -48,3 +48,17 @@ the_table %>%
   pull(Sql) %>% 
   paste(collapse = ", \n") %>% 
   cat()
+
+the_table %>%
+  count(Core) %>%
+  mutate(text = paste(Core, n)) %>%
+  pull(text) %>%
+  paste(collapse = "; ")
+
+
+# catlog list -------------------------------------------------------------
+
+catlog %>% 
+  select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
+  spread(key = "Class", value = "Name") %>% select(-id) %>%
+  as.list() %>% lapply(function(x) x[!is.na(x)])
