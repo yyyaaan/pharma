@@ -6,24 +6,68 @@ output:
 runtime: shiny
 ---
 
+```{js openInNew}
+var links = document.links;
+
+for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+   if (links[i].hostname != window.location.hostname) {
+       links[i].target = '_blank';
+   } 
+}
+```
+
 ```{r setup, include=FALSE}
 library(visNetwork)
 library(flexdashboard)
 library(shiny)
 library(tidyverse)
 library(DT)
-
 library(shinyWidgets)
 
-getDataType <- function(type = c("char")){
+getDataType <- function(type = c("char"), lang = "SQL"){
   result <- NULL
-  for(i in 1:length(type)){
-    if(type[i] == "Char") result <- c(result, "Char(200)")
-    else if(type[i] == "Num") result <- c(result, "Num(10)")
-    else result <- c(result, "/*ERROR*/")
+  if (lang == "SQL"){
+    for(i in 1:length(type)){
+      if(type[i] == "Char") result <- c(result, "Char(100)")
+      else if(type[i] == "Num") result <- c(result, "   Num(8)")
+      else result <- c(result, "/*ERROR*/")
+    }
+  }
+  if (lang == "SAS"){
+    for(i in 1:length(type)){
+      if(type[i] == "Char") result <- c(result, 'length=$100')
+      else if(type[i] == "Num") result <- c(result, 'length=8   ')
+      else result <- c(result, "/*ERROR*/")
+    }
   }
   result
 }
+
+getCode <- function(the_table, lang = "SQL"){
+
+  if(lang == "SQL") return(
+    the_table %>% 
+      mutate(Sql = paste0('\t/*', str_pad(Core, 4) ,'*/  ', 
+                          str_pad(`Variable Name`, 15, "right"), 
+                          getDataType(Type), 
+                          ' "', `Variable Label`, '"')) %>%
+      pull(Sql) %>% 
+      paste(collapse = ", \n") %>% 
+      paste("creat table attrib(\n", ., "\n)")
+  )
+
+  if(lang == "SAS") return(
+    the_table %>% 
+      mutate(Sas = paste0('\t/*',str_pad(Core, 4) ,'*/  ', 
+                          str_pad(`Variable Name`, 15, "right"), 
+                          getDataType(Type, "SAS"),
+                          '  label="', `Variable Label`, '"')) %>%
+      pull(Sas) %>% 
+      paste(collapse = "\n") %>% 
+      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ ""; stop;\nrun;')
+  )
+}
+
 ```
 
 Cheatsheet {data-orientation=columns}
@@ -75,6 +119,14 @@ format ENDDT yymmdd10.;
 ADY = intck('day', STARTDT, ENDDT);
 </pre></p>
 
+### Working with first. and count
+
+<p><pre>
+ count + 1; 
+ by USUBJID;
+ if first.USUBJID then count = 1;
+ SEQ = count;
+</pre></p>
 
 ### PROC output styles
 
@@ -93,8 +145,9 @@ RUN;
 <p><pre>
 PROC TRANSPOSE data=input 
                out=output (drop=_NAME_ _label_);
-	by cohort;
-	id _stat_;
+	by [the combination to identify];
+	id [move to column];
+	var [column to be transposed to row];
 RUN;
 </pre></p>
 
@@ -121,12 +174,11 @@ Column
 [AE](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#Adverse+Events) | [EX](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#Exposure)
 </center>
 
-### Nothing
+### Important Notes
 
-```{r}
-renderPrint("nothing to show yet")
-```
-<p></p>
+[relative timing](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#Use+of+Relative+Timing+Variables) | --STRF -- ENRF --STRTPT --STTPT --ENRTPT --ENTPT 
+<br />
+BEFORE DURING DURING/AFTER AFTER U (=unkonwn) Ongoing Prior
 
 
 GCP {data-orientation=rows}
@@ -194,14 +246,14 @@ to be furnished
 SDTM
 =======================================================================
 
-Column {.sidebar data-width=360}
+Column {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
 tables <- readRDS("sdtm_domain.rds")
 catlog <- tables[[1]]
 
-pickerInput("sdtm_domain", "Domains", 
+pickerInput("sdtm_domain", "Domains",
             choices = catlog %>% 
               select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
               spread(key = "Class", value = "Name") %>% select(-id) %>%
@@ -214,8 +266,14 @@ renderText(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
              mutate(text = paste(Core, n)) %>%
              pull(text) %>%
              paste(collapse = " | "))
+
 ```
 
+<hr />
+
+```{r label}
+
+```
 
 <hr />
 
@@ -225,8 +283,14 @@ All variable names (RETAIN)
 renderPrint(
   tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
     pull(1) %>%
-    paste(collapse = " ")
+    paste(collapse = " ") %>%
+    cat()
 )
+
+renderUI(tags$a("SDTM Link on CDISC", 
+                href =  paste0("https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#",
+                               input$sdtm_domain %>% substr(4,99) %>% str_replace_all(" ", "+")),
+                class = "btn btn-default", target="_blank"))
 ```
 
 <hr />
@@ -241,24 +305,25 @@ Column
 
 ```{r}
 dropdownButton(
-  tags$h3("Generate SQL"),
+  tags$h3("Generate Code"),
   
   awesomeCheckboxGroup(inputId = "sdtm_core", label = "",
                        choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"),
                        inline =  TRUE),
   
+  radioGroupButtons(inputId = "lang", label = "", 
+                    choices = c("SQL", "SAS"), status = "primary"),
   
   tags$hr(),
   
   renderPrint(
-    tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
-      filter(Core %in% input$sdtm_core) %>%
-      mutate(Sql = paste0('/*',pull(.,7) ,'*/\t',pull(.,1), " ", getDataType(pull(., 3)), ' "', pull(., 2), '"')) %>%
-      pull(Sql) %>% 
-      paste(collapse = ", \n") %>%
-      cat()),
+      tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
+        filter(Core %in% input$sdtm_core) %>%
+        getCode(input$lang) %>%
+        cat()
+  ),
   
-  circle = F, status = "primary", label = "SQL-code", width = "600px"
+  circle = F, status = "primary", label = "Get Code", width = "699px"
 )
 
 ```
