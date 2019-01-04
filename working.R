@@ -2,6 +2,55 @@ library(rvest); library(tidyverse)
 options(stringsAsFactors = F)
 
 
+# supporting functions RUN ------------------------------------------------
+
+
+
+getDataType <- function(type = c("char"), lang = "SQL"){
+  result <- NULL
+  if (lang == "SQL"){
+    for(i in 1:length(type)){
+      if(type[i] == "Char") result <- c(result, "Char(100)")
+      else if(type[i] == "Num") result <- c(result, "   Num(8)")
+      else result <- c(result, "/*ERROR*/")
+    }
+  }
+  if (lang == "SAS"){
+    for(i in 1:length(type)){
+      if(type[i] == "Char") result <- c(result, 'length=$100')
+      else if(type[i] == "Num") result <- c(result, 'length=8   ')
+      else result <- c(result, "/*ERROR*/")
+    }
+  }
+  result
+}
+
+getCode <- function(the_table, lang = "SQL"){
+  
+  if(lang == "SQL") return(
+    the_table %>% 
+      mutate(Sql = paste0('\t/*', str_pad(Core, 4) ,'*/  ', 
+                          str_pad(`Variable Name`, 15, "right"), 
+                          getDataType(Type), 
+                          ' "', `Variable Label`, '"')) %>%
+      pull(Sql) %>% 
+      paste(collapse = ", \n") %>% 
+      paste("create table attrib(\n", ., "\n)")
+  )
+  
+  if(lang == "SAS") return(
+    the_table %>% 
+      mutate(Sas = paste0('\t/*',str_pad(Core, 4) ,'*/  ', 
+                          str_pad(`Variable Name`, 15, "right"), 
+                          getDataType(Type, "SAS"),
+                          '  label="', `Variable Label`, '"')) %>%
+      pull(Sas) %>% 
+      paste(collapse = "\n") %>% 
+      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ ""; stop;\nrun;')
+  )
+}
+
+
 # get SDTMIG domains ------------------------------------------------------
 
 getInfo_no_run <- function(){
@@ -29,70 +78,36 @@ getInfo_no_run <- function(){
 
 
 
+# get fancy list for domains ----------------------------------------------
 
-
-# working on SDTM domains -------------------------------------------------
-
-
-the_table <- tables[[14]]
-
-getDataType <- function(type = c("char"), lang = "SQL"){
-  result <- NULL
-  if (lang == "SQL"){
-    for(i in 1:length(type)){
-      if(type[i] == "Char") result <- c(result, "Char(100)")
-      else if(type[i] == "Num") result <- c(result, "   Num(8)")
-      else result <- c(result, "/*ERROR*/")
-    }
-  }
-  if (lang == "SAS"){
-    for(i in 1:length(type)){
-      if(type[i] == "Char") result <- c(result, 'length=$100')
-      else if(type[i] == "Num") result <- c(result, 'length=8   ')
-      else result <- c(result, "/*ERROR*/")
-    }
-  }
-  result
+getCatlogList_no_run <- function(){
+  catlog %>% 
+    select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
+    spread(key = "Class", value = "Name") %>% select(-id) %>%
+    as.list() %>% lapply(function(x) x[!is.na(x)])
 }
 
-getCode <- function(the_table, lang = "SQL"){
 
-  if(lang == "SQL") return(
-    the_table %>% 
-      mutate(Sql = paste0('\t/*', str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
-                          getDataType(Type), 
-                          ' "', `Variable Label`, '"')) %>%
-      pull(Sql) %>% 
-      paste(collapse = ", \n") %>% 
-      paste("creat table attrib(\n", ., "\n)")
-  )
 
-  if(lang == "SAS") return(
-    the_table %>% 
-      mutate(Sas = paste0('\t/*',str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
-                          getDataType(Type, "SAS"),
-                          '  label="', `Variable Label`, '"')) %>%
-      pull(Sas) %>% 
-      paste(collapse = "\n") %>% 
-      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ ""; stop;\nrun;')
-  )
+
+# playground --------------------------------------------------------------
+
+playit_not_run <- function(){
+  
+  tables <- readRDS("sdtm_domain.rds")
+  
+  the_table <- tables[[14]]
+  
+  the_table %>% getCode("SAS") %>% cat()
+  
+  # Count
+  the_table %>%
+    count(Core) %>%
+    mutate(text = paste(Core, n)) %>%
+    pull(text) %>%
+    paste(collapse = "; ")
+  
+  "AE Adverse Events" %>% word(2:5) %>% na.omit() %>% paste(collapse = "+")
+
 }
 
-the_table %>% getCode("SAS") %>% cat()
-
-# Count
-the_table %>%
-  count(Core) %>%
-  mutate(text = paste(Core, n)) %>%
-  pull(text) %>%
-  paste(collapse = "; ")
-
-
-# catlog list -------------------------------------------------------------
-
-catlog %>% 
-  select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
-  spread(key = "Class", value = "Name") %>% select(-id) %>%
-  as.list() %>% lapply(function(x) x[!is.na(x)])

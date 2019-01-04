@@ -24,49 +24,7 @@ library(tidyverse)
 library(DT)
 library(shinyWidgets)
 
-getDataType <- function(type = c("char"), lang = "SQL"){
-  result <- NULL
-  if (lang == "SQL"){
-    for(i in 1:length(type)){
-      if(type[i] == "Char") result <- c(result, "Char(100)")
-      else if(type[i] == "Num") result <- c(result, "   Num(8)")
-      else result <- c(result, "/*ERROR*/")
-    }
-  }
-  if (lang == "SAS"){
-    for(i in 1:length(type)){
-      if(type[i] == "Char") result <- c(result, 'length=$100')
-      else if(type[i] == "Num") result <- c(result, 'length=8   ')
-      else result <- c(result, "/*ERROR*/")
-    }
-  }
-  result
-}
-
-getCode <- function(the_table, lang = "SQL"){
-
-  if(lang == "SQL") return(
-    the_table %>% 
-      mutate(Sql = paste0('\t/*', str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
-                          getDataType(Type), 
-                          ' "', `Variable Label`, '"')) %>%
-      pull(Sql) %>% 
-      paste(collapse = ", \n") %>% 
-      paste("creat table attrib(\n", ., "\n)")
-  )
-
-  if(lang == "SAS") return(
-    the_table %>% 
-      mutate(Sas = paste0('\t/*',str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
-                          getDataType(Type, "SAS"),
-                          '  label="', `Variable Label`, '"')) %>%
-      pull(Sas) %>% 
-      paste(collapse = "\n") %>% 
-      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ ""; stop;\nrun;')
-  )
-}
+source("working.R")
 
 ```
 
@@ -162,11 +120,12 @@ Column
 
 ### CDISC.org References
 
-- [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3) | [v3.2 pdf](https://www.cdisc.org/system/files/members/standard/foundational/sdtmig/sdtmig_20v3.2_20noportfolio.pdf)
+- [SDTM v1.7](https://www.cdisc.org/standards/foundational/sdtm/sdtm-v1-7) | [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3) | [v3.2 pdf](https://www.cdisc.org/system/files/members/standard/foundational/sdtmig/sdtmig_20v3.2_20noportfolio.pdf)
 
-- [SDTM v1.7](https://www.cdisc.org/standards/foundational/sdtm/sdtm-v1-7)
+- [ADaM v2.1](https://www.cdisc.org/system/files/members/standard/foundational/adam/analysis_data_model_v2.1.pdf) | [ADaMIG v1.1](https://www.cdisc.org/system/files/members/standard/foundational/adam/ADaMIG_v1.1.pdf) | [ADaM Examples](https://www.cdisc.org/system/files/members/standard/foundational/adam/adam_examples_final.pdf)
 
-- [SDTM Controlled Terminology](https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html)
+
+- [Controlled Terminology](https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html)
 
 - [CDISC Glossary](https://www.cdisc.org/system/files/members/standard/foundational/glossary/CDISC%20Glossary%20v11.pdf)
 
@@ -249,49 +208,27 @@ SDTM
 Column {.sidebar}
 -----------------------------------------------------------------------
 
+Settings
+
 ```{r}
 tables <- readRDS("sdtm_domain.rds")
 catlog <- tables[[1]]
 
-pickerInput("sdtm_domain", "Domains",
-            choices = catlog %>% 
-              select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
-              spread(key = "Class", value = "Name") %>% select(-id) %>%
-              as.list() %>% lapply(function(x) x[!is.na(x)]),
-            options = list(`live-search` = TRUE))
+radioGroupButtons(inputId = "lang", label = "", choices = c("SQL", "SAS"), status = "primary")
 
-renderText(paste(nrow(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]]), "variables"))
-renderText(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
-             count(Core) %>%
-             mutate(text = paste(Core, n)) %>%
-             pull(text) %>%
-             paste(collapse = " | "))
+awesomeCheckboxGroup(inputId = "sdtm_core", label = "Core Variables", inline = F,
+                     choices = c("Req", "Perm", "Exp"), selected = c("Req", "Perm", "Exp"))
 
-```
+tags$hr()
 
-<hr />
-
-```{r label}
-
-```
-
-<hr />
-
-All variable names (RETAIN)
-
-```{r}
-renderPrint(
-  tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>%
-    pull(1) %>%
-    paste(collapse = " ") %>%
-    cat()
-)
-
-renderUI(tags$a("SDTM Link on CDISC", 
+renderUI(tags$a(input$sdtm_domain %>% word(1) %>% paste("Veiw",., "on CDISC"), 
                 href =  paste0("https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#",
-                               input$sdtm_domain %>% substr(4,99) %>% str_replace_all(" ", "+")),
-                class = "btn btn-default", target="_blank"))
+                               input$sdtm_domain %>% word(2:5) %>% na.omit() %>% paste(collapse = "+")),
+                class = "btn btn-primary", 
+                target="_blank"))
+
 ```
+
 
 <hr />
 
@@ -304,18 +241,56 @@ Column
 ### Tables
 
 ```{r}
+pickerInput("sdtm_domain", "Domains",
+            choices = catlog %>% 
+              select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
+              spread(key = "Class", value = "Name") %>% select(-id) %>%
+              as.list() %>% lapply(function(x) x[!is.na(x)]),
+            options = list(`live-search` = TRUE))
+
+# dropdownButton(
+#   renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+#                     options = list(pageLength = 999, dom = 'ft')),
+#   circle = F, status = "primary", label = "View Domain Details", width = "100%"
+# )
+
+
+textAreaInput("code", "", value = "here to show code", rows = 15,  resize = "both") %>% 
+  tagAppendAttributes(style = 'width: 100%; font-family: "Courier New"; ') #"Lucida Console" 
+
+textAreaInput("varline", "Variable Order:", value = "here to show code", rows = 3, resize = "both") %>% 
+  tagAppendAttributes(style = 'width: 100%; font-family: "Courier New"; ') #"Lucida Console" 
+
+observeEvent({input$lang; input$sdtm_core; input$sdtm_domain}, {
+  
+  table <-tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] 
+  info <- table %>% count(Core) %>% mutate(text = paste(Core, n)) %>% pull(text) %>% paste(collapse = " | ")
+  
+  updateTextAreaInput(session, "code",
+                      label = paste("Total", nrow(table), "variables |", info),
+                      value = table %>% filter(Core %in% input$sdtm_core) %>% getCode(input$lang))
+  updateTextAreaInput(session, "varline",
+                      value = table %>% filter(Core %in% input$sdtm_core) %>% pull(1) %>% paste(collapse = " ") %>% paste0(";"))
+})
+
+
+```
+
+<center>= = = end = = =</center>
+
+
+```{r, eval = F}
+# the DROPDOWN and DataTABLE are hidden
 dropdownButton(
-  tags$h3("Generate Code"),
+
+  radioGroupButtons(inputId = "lang", label = "", 
+                    choices = c("SQL", "SAS"), status = "primary"),
   
   awesomeCheckboxGroup(inputId = "sdtm_core", label = "",
                        choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"),
                        inline =  TRUE),
-  
-  radioGroupButtons(inputId = "lang", label = "", 
-                    choices = c("SQL", "SAS"), status = "primary"),
-  
   tags$hr(),
-  
+
   renderPrint(
       tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
         filter(Core %in% input$sdtm_core) %>%
@@ -326,11 +301,6 @@ dropdownButton(
   circle = F, status = "primary", label = "Get Code", width = "699px"
 )
 
-```
-
-```{r}
 renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
                     options = list(pageLength = 999, dom = 'ft'))
 ```
-
-<center>= = = end = = =</center>
