@@ -54,6 +54,7 @@ getCode <- function(the_table, lang = "SQL"){
 # get SDTMIG domains ------------------------------------------------------
 
 getInfo_no_run <- function(){
+  
   tables <- read_html("SDTMIG.html") %>%
     html_nodes("table.sdtmig-metadata") %>%
     html_table()
@@ -68,12 +69,37 @@ getInfo_no_run <- function(){
     row2write = which(catlog$Dataset == domain)
     if(length(row2write)) catlog$index[row2write] <- i
   }
+  catlog$index[56] <- 58; catlog$index[57] <- 60; catlog$index[58] <- 59
+  
   
   catlog$Name <- paste(catlog$Dataset, catlog$Description)
+  
   
   tables[[1]] <- catlog
   
   saveRDS(tables, file = "sdtm_domain.rds")
+  
+  
+  
+  #   ===   ===   ===
+
+  
+  adam_extract <- adamSTR[2931:21613]
+  adam_extract[length(adam_extract)]
+  
+  adam <- read_html(adam_extract)
+  adam %>% html_nodes("p")
+  
+
+
+  
+  
+
+
+  xpath <- sprintf("./p[count(preceding-sibling::h2)=%d]", seq_along(headlines)-1)
+  
+  adam %>% html_nodes(xpath = "./p[count(preceding-sibling::h2)=9]") %>% html_text()
+  
 }
 
 
