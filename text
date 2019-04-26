@@ -1,0 +1,24 @@
+
+	ECOG Performance Status (ECOG); 12
+	Physical Examination (PE); 13
+	Measurement Of Spleen By Palpation (SPLEEN); 14
+	Measurement Of Spleen By Palpation (SPLEEN2); 15
+	12-Lead ECG Evaluation - Local Analysis (ECG); 27
+	Central Labs (CLAB); 28
+	Local Labs - Hematology (HEMA); 30
+	Local Labs - Urinalysis (URIN); 32
+	Local Labs - Pregnancy (PREG); 34
+	Hematocrit Control Monitoring (HCM); 36
+	Vital Signs (VS); 39
+	JAK2 Mutation (JAK); 42
+	Central Labs (CLAB1); 51
+	Local Labs - Serum Chemistry (CHEM); 53
+	Local Labs - Iron (IRON); 55
+	Local Labs - Lipid Panel (LIPID); 56
+	Local Labs - Coagulation (COAG); 57
+	INC424 Drug Accountability (DA); 63
+	Prior and Concomitant Medications (CM); 66
+	Adverse Events (AE); 70
+	Thromboembolic Events (AE2); 71
+	Hemorrhagic Events (AE3); 72
+	Phlebotomy On Treatment (PLOT); 78

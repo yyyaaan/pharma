@@ -1,0 +1,1525 @@
+Variable Name|Variable Label|Type|Controlled Terms, Codelist or Format1|Role|Core|domain
+--DTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|MI
+--DY|Study Day of Collection|Num|x|Timing|Exp|MI
+--LOBXFL|Last Observation Before Exposure Flag|Char|x|Record Qualifier|Exp|MI
+--ORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|MI
+--SEQ|Sequence Number|Num|x|Identifier|Req|MI
+--STRESC|Result or Finding in Standard Format|Char|x|Result Qualifier|Exp|MI
+--TEST|Name of Measurement, Test or Examination|Char|*|Synonym Qualifier|Req|MI
+--TESTCD|Short Name of Measurement, Test or Exam|Char|*|Topic|Req|MI
+ABLFL|Baseline Record Flag |Char|Y|x|Cond|ADAM
+ABLFN|Baseline Record Flag (N) |Num|1|x|Perm|ADAM
+ACTARM|Description of Actual Arm|Char|*|Synonym Qualifier|Exp|DM
+ACTARMCD|Actual Arm Code|Char|*|Record Qualifier|Exp|DM
+ACTARMUD|Description of Unplanned Actual Arm|Char|x|Record Qualifier|Exp|DM
+ADT|Analysis Date |Num|x|x|Perm|ADAM
+ADTF|Analysis Date Imputation Flag |Char|(DATEFL)|x|Cond|ADAM
+ADTM|Analysis Datetime |Num|x|x|Perm|ADAM
+ADY|Analysis Relative Day|Num|x|x|Perm|ADAM
+AEACN|Action Taken with Study Treatment|Char|(ACN)|Record Qualifier|Exp|AE
+AEACNOTH|Other Action Taken|Char|x|Record Qualifier|Perm|AE
+AEBDSYCD|Body System or Organ Class Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AEBODSYS|Body System or Organ Class|Char|*|Record Qualifier|Exp|AE
+AECAT|Category for Adverse Event|Char|*|Grouping Qualifier|Perm|AE
+AECONTRT|Concomitant or Additional Trtmnt Given|Char|(NY)|Record Qualifier|Perm|AE
+AEDECOD|Dictionary-Derived Term|Char|MedDRA|Synonym Qualifier|Req|AE
+AEDUR|Duration of Adverse Event|Char|ISO 8601|Timing|Perm|AE
+AEENDTC|End Date/Time of Adverse Event|Char|ISO 8601|Timing|Exp|AE
+AEENDY|Study Day of End of Adverse Event|Num|x|Timing|Perm|AE
+AEENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|AE
+AEENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|AE
+AEENTPT|End Reference Time Point|Char|x|Timing|Perm|AE
+AEGRPID|Group ID|Char|x|Identifier|Perm|AE
+AEHLGT|High Level Group Term|Char|MedDRA|Variable Qualifier|Exp|AE
+AEHLGTCD|High Level Group Term Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AEHLT|High Level Term|Char|MedDRA|Variable Qualifier|Exp|AE
+AEHLTCD|High Level Term Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AELLT|Lowest Level Term|Char|MedDRA|Variable Qualifier|Exp|AE
+AELLTCD|Lowest Level Term Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AELOC|Location of Event|Char|(LOC)|Record Qualifier|Perm|AE
+AEMODIFY|Modified Reported Term|Char|x|Synonym Qualifier|Perm|AE
+AENDT|Analysis End Date |Num|x|x|Perm|ADAM
+AENDTF|Analysis End Date Imputation Flag |Char|(DATEFL)|x|Cond|ADAM
+AENDTM|Analysis End Datetime |Num|x|x|Perm|ADAM
+AENDY|Analysis End Relative Day|Num|x|x|Perm|ADAM
+AENTM|Analysis End Time |Num|x|x|Perm|ADAM
+AENTMF|Analysis End Time Imputation Flag |Char|(TIMEFL)|x|Cond|ADAM
+AEOUT|Outcome of Adverse Event|Char|(OUT)|Record Qualifier|Perm|AE
+AEPATT|Pattern of Adverse Event|Char|*|Record Qualifier|Perm|AE
+AEPRESP|Pre-Specified Adverse Event|Char|(NY)|Variable Qualifier|Perm|AE
+AEPTCD|Preferred Term Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AEREFID|Reference ID|Char|x|Identifier|Perm|AE
+AEREL|Causality|Char|*|Record Qualifier|Exp|AE
+AERELNST|Relationship to Non-Study Treatment|Char|x|Record Qualifier|Perm|AE
+AESCAN|Involves Cancer|Char|(NY)|Record Qualifier|Perm|AE
+AESCAT|Subcategory for Adverse Event|Char|*|Grouping Qualifier|Perm|AE
+AESCONG|Congenital Anomaly or Birth Defect|Char|(NY)|Record Qualifier|Perm|AE
+AESDISAB|Persist or Signif Disability/Incapacity|Char|(NY)|Record Qualifier|Perm|AE
+AESDTH|Results in Death|Char|(NY)|Record Qualifier|Perm|AE
+AESEQ|Sequence Number|Num|x|Identifier|Req|AE
+AESER|Serious Event|Char|(NY)|Record Qualifier|Exp|AE
+AESEV|Severity/Intensity|Char|(AESEV)|Record Qualifier|Perm|AE
+AESHOSP|Requires or Prolongs Hospitalization|Char|(NY)|Record Qualifier|Perm|AE
+AESLIFE|Is Life Threatening|Char|(NY)|Record Qualifier|Perm|AE
+AESMIE|Other Medically Important Serious Event|Char|(NY)|Record Qualifier|Perm|AE
+AESOC|Primary System Organ Class|Char|MedDRA|Variable Qualifier|Exp|AE
+AESOCCD|Primary System Organ Class Code|Num|MedDRA|Variable Qualifier|Exp|AE
+AESOD|Occurred with Overdose|Char|(NY)|Record Qualifier|Perm|AE
+AESPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|AE
+AESTDTC|Start Date/Time of Adverse Event|Char|ISO 8601|Timing|Exp|AE
+AESTDY|Study Day of Start of Adverse Event|Num|x|Timing|Perm|AE
+AETERM|Reported Term for the Adverse Event|Char|x|Topic|Req|AE
+AETOXGR|Standard Toxicity Grade|Char|*|Record Qualifier|Perm|AE
+AGCAT|Category for Agent|Char|*|Grouping Qualifier|Perm|AG
+AGCLAS|Agent Class|Char|*|Variable Qualifier|Perm|AG
+AGCLASCD|Agent Class Code|Char|*|Variable Qualifier|Perm|AG
+AGDECOD|Standardized Agent Name|Char|*|Synonym Qualifier|Perm|AG
+AGDOSE|Dose per Administration|Num|x|Record Qualifier|Perm|AG
+AGDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Perm|AG
+AGDOSFRQ|Dosing Frequency per Interval|Char|(FREQ)|Variable Qualifier|Perm|AG
+AGDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|AG
+AGDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Perm|AG
+AGDUR|Duration of Agent|Char|ISO 8601|Timing|Perm|AG
+AGE|Age|Num|x|Record Qualifier|Exp|DM
+AGENDTC|End Date/Time of Agent|Char|ISO 8601|Timing|Perm|AG
+AGENDY|Study Day of End of Agent|Num|x|Timing|Perm|AG
+AGENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|AG
+AGENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|AG
+AGENTPT|End Reference Time Point|Char|x|Timing|Perm|AG
+AGEU|Age Units|Char|(AGEU)|Variable Qualifier|Exp|DM
+AGGRPID|Group ID|Char|x|Identifier|Perm|AG
+AGLNKGRP|Link Group ID|Char|x|Identifier|Perm|AG
+AGLNKID|Link ID|Char|x|Identifier|Perm|AG
+AGMODIFY|Modified Reported Name|Char|x|Synonym Qualifier|Perm|AG
+AGOCCUR|AG Occurrence|Char|(NY)|Record Qualifier|Perm|AG
+AGPRESP|AG Pre-Specified|Char|(NY)|Variable Qualifier|Perm|AG
+AGREASND|Reason Procedure Agent Not Collected|Char|x|Record Qualifier|Perm|AG
+AGROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|AG
+AGSCAT|Subcategory for Agent|Char|*|Grouping Qualifier|Perm|AG
+AGSEQ|Sequence Number|Num|x|Identifier|Req|AG
+AGSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|AG
+AGSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|AG
+AGSTDTC|Start Date/Time of Agent|Char|ISO 8601|Timing|Perm|AG
+AGSTDY|Study Day of Start of Agent|Num|x|Timing|Perm|AG
+AGSTRF|Start Relative to Reference Period|Char|(STENRF)|Timing|Perm|AG
+AGSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|AG
+AGSTTPT|Start Reference Time Point|Char|x|Timing|Perm|AG
+AGTRT|Reported Agent Name|Char|x|Topic|Req|AG
+APEREDT|Period End Date |Num|x|x|Perm|ADAM
+APEREDTF|Period End Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+APEREDTM|Period End Datetime |Num|x|x|Perm|ADAM
+APERETM|Period End Time |Num|x|x|Perm|ADAM
+APERETMF|Period End Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+APERIOD|Period |Num|x|x|Perm|ADAM
+APERIODC|Period (C) |Char|x|x|Perm|ADAM
+APERSDT|Period Start Date |Num|x|x|Perm|ADAM
+APERSDTF|Period Start Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+APERSDTM|Period Start Datetime |Num|x|x|Perm|ADAM
+APERSTM|Period Start Time |Num|x|x|Perm|ADAM
+APERSTMF|Period Start Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+APHASE|Phase |Char|x|x|Perm|ADAM
+APHASEN|Phase (N) |Num|x|x|Perm|ADAM
+ARELTM|Analysis Relative Time |Num|x|x|Perm|ADAM
+ARELTMU|Analysis Relative Time Unit |Char|x|x|Perm|ADAM
+ARM|Description of Planned Arm|Char|*|Synonym Qualifier|Exp|DM
+ARMCD|Planned Arm Code|Char|*|Record Qualifier|Exp|DM
+ARMNRS|Reason Arm and/or Actual Arm is Null|Char|*|Record Qualifier|Exp|DM
+ASEQ|Analysis Sequence Number |Num|x|x|Perm|ADAM
+ASPER|Subperiod within Period |Num|x|x|Perm|ADAM
+ASPERC|Subperiod within Period (C) |Char|x|x|Perm|ADAM
+ASPREDT|Subperiod End Date |Num|x|x|Perm|ADAM
+ASPREDTF|Subperiod End Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+ASPREDTM|Subperiod End Datetime |Num|x|x|Perm|ADAM
+ASPRETM|Subperiod End Time |Num|x|x|Perm|ADAM
+ASPRETMF|Subperiod End Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+ASPRSDT|Subperiod Start Date |Num|x|x|Perm|ADAM
+ASPRSDTF|Subperiod Start Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+ASPRSDTM|Subperiod Start Datetime |Num|x|x|Perm|ADAM
+ASPRSTM|Subperiod Start Time |Num|x|x|Perm|ADAM
+ASPRSTMF|Subperiod Start Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+ASTDT|Analysis Start Date |Num|x|x|Perm|ADAM
+ASTDTF|Analysis Start Date Imputation Flag |Char|(DATEFL)|x|Cond|ADAM
+ASTDTM|Analysis Start Datetime |Num|x|x|Perm|ADAM
+ASTDY|Analysis Start Relative Day|Num|x|x|Perm|ADAM
+ASTTM|Analysis Start Time |Num|x|x|Perm|ADAM
+ASTTMF|Analysis Start Time Imputation Flag |Char|(TIMEFL)|x|Cond|ADAM
+ATM|Analysis Time |Num|x|x|Perm|ADAM
+ATMF|Analysis Time Imputation Flag |Char|(TIMEFL)|x|Cond|ADAM
+ATPT|Analysis Timepoint |Char|x|x|Cond|ADAM
+ATPTN|Analysis Timepoint (N) |Num|x|x|Perm|ADAM
+ATPTREF|Analysis Timepoint Reference |Char|x|x|Perm|ADAM
+AVAL|Analysis Value |Num|x|x|Cond|ADAM
+AVALC|Analysis Value (C) |Char|x|x|Cond|ADAM
+AVALCA1N|Analysis Value Category 1 (N) |Num|x|x|Perm|ADAM
+AVALCA2N|Analysis Value Category 2 (N) |Num|x|x|Perm|ADAM
+AVALCA3N|Analysis Value Category 3 (N)|Num|x|x|Perm|ADAM
+AVALCA4N|Analysis Value Category 4 (N)|Num|x|x|Perm|ADAM
+AVALCAT1|Analysis Value Category 1 |Char|x|x|Perm|ADAM
+AVALCAT2|Analysis Value Category 2 |Char|x|x|Perm|ADAM
+AVALCAT3|Analysis Value Category 3|Char|x|x|Perm|ADAM
+AVALCAT4|Analysis Value Category 4|Char|x|x|Perm|ADAM
+AVISIT|Analysis Visit|Char|x|x|Cond|ADAM
+AVISITN|Analysis Visit (N) |Num|x|x|Perm|ADAM
+BASE|Baseline Value |Num|x|x|Cond|ADAM
+BASEC|Baseline Value (C) |Char|x|x|Perm|ADAM
+BASECA1N|Baseline Category 1 (N) |Num|x|x|Perm|ADAM
+BASECA2N|Baseline Category 2 (N) |Num|x|x|Perm|ADAM
+BASECA3N|Baseline Category 3 (N)|Num|x|x|Perm|ADAM
+BASECA4N|Baseline Category 4 (N)|Num|x|x|Perm|ADAM
+BASECAT1|Baseline Category 1|Char|x|x|Perm|ADAM
+BASECAT2|Baseline Category 2|Char|x|x|Perm|ADAM
+BASECAT3|Baseline Category 3|Char|x|x|Perm|ADAM
+BASECAT4|Baseline Category 4|Char|x|x|Perm|ADAM
+BASETYPE|Baseline Type |Char|x|x|Cond|ADAM
+BRTHDTC|Date/Time of Birth|Char|ISO 8601|Record Qualifier|Perm|DM
+CEBODSYS|Body System or Organ Class|Char|*|Record Qualifier|Perm|CE
+CECAT|Category for the Clinical Event|Char|*|Grouping Qualifier|Perm|CE
+CEDECOD|Dictionary-Derived Term|Char|*|Synonym Qualifier|Perm|CE
+CEDTC|Date/Time of Event Collection|Char|ISO 8601|Timing|Perm|CE
+CEDY|Study Day of Event Collection|Num|x|Timing|Perm|CE
+CEENDTC|End Date/Time of Clinical Event|Char|ISO 8601|Timing|Perm|CE
+CEENDY|Study Day of End of Event|Num|x|Timing|Perm|CE
+CEENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|CE
+CEENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|CE
+CEENTPT|End Reference Time Point|Char|x|Timing|Perm|CE
+CEGRPID|Group ID|Char|x|Identifier|Perm|CE
+CEOCCUR|Clinical Event Occurrence|Char|(NY)|Record Qualifier|Perm|CE
+CEPRESP|Clinical Event Pre-specified|Char|(NY)|Variable Qualifier|Perm|CE
+CEREASND|Reason Clinical Event Not Collected|Char|x|Record Qualifier|Perm|CE
+CEREFID|Reference ID|Char|x|Identifier|Perm|CE
+CESCAT|Subcategory for the Clinical Event|Char|*|Grouping Qualifier|Perm|CE
+CESEQ|Sequence Number|Num|x|Identifier|Req|CE
+CESEV|Severity/Intensity|Char|*|Record Qualifier|Perm|CE
+CESPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|CE
+CESTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|CE
+CESTDTC|Start Date/Time of Clinical Event|Char|ISO 8601|Timing|Perm|CE
+CESTDY|Study Day of Start of Event|Num|x|Timing|Perm|CE
+CESTRF|Start Relative to Reference Period|Char|(STENRF)|Timing|Perm|CE
+CESTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|CE
+CESTTPT|Start Reference Time Point|Char|x|Timing|Perm|CE
+CETERM|Reported Term for the Clinical Event|Char|x|Topic|Req|CE
+CHG|Change from Baseline |Num|x|x|Perm|ADAM
+CHGCAT1|Change from  Baseline Category 1 |Char|x|x|Perm|ADAM
+CHGCAT1N|Change from  Baseline Category 1  (N) |Num|x|x|Perm|ADAM
+CHGCAT2|Change from  Baseline Category 2 |Char|x|x|Perm|ADAM
+CHGCAT2N|Change from  Baseline Category 2  (N) |Num|x|x|Perm|ADAM
+CHGCAT3|Change from  Baseline Category 3|Char|x|x|Perm|ADAM
+CHGCAT3N|Change from  Baseline Category 3  (N)|Num|x|x|Perm|ADAM
+CHGCAT4|Change from Baseline Category 4|Char|x|x|Perm|ADAM
+CHGCAT4N|Change from Baseline Category 4 (N)|Num|x|x|Perm|ADAM
+CMADJ|Reason for Dose Adjustment|Char|x|Record Qualifier|Perm|CM
+CMCAT|Category for Medication|Char|x|Grouping Qualifier|Perm|CM
+CMCLAS|Medication Class|Char|x|Variable Qualifier|Perm|CM
+CMCLASCD|Medication Class Code|Char|x|Variable Qualifier|Perm|CM
+CMDECOD|Standardized Medication Name|Char|x|Synonym Qualifier|Perm|CM
+CMDOSE|Dose per Administration|Num|x|Record Qualifier|Perm|CM
+CMDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Perm|CM
+CMDOSFRQ|Dosing Frequency per Interval|Char|(FREQ)|Variable Qualifier|Perm|CM
+CMDOSRGM|Intended Dose Regimen|Char|x|Variable Qualifier|Perm|CM
+CMDOSTOT|Total Daily Dose|Num|x|Record Qualifier|Perm|CM
+CMDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|CM
+CMDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Perm|CM
+CMDUR|Duration|Char|ISO 8601|Timing|Perm|CM
+CMENDTC|End Date/Time of Medication|Char|ISO 8601|Timing|Perm|CM
+CMENDY|Study Day of End of Medication|Num|x|Timing|Perm|CM
+CMENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|CM
+CMENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|CM
+CMENTPT|End Reference Time Point|Char|x|Timing|Perm|CM
+CMGRPID|Group ID|Char|x|Identifier|Perm|CM
+CMINDC|Indication|Char|x|Record Qualifier|Perm|CM
+CMMODIFY|Modified Reported Name|Char|x|Synonym Qualifier|Perm|CM
+CMOCCUR|CM Occurrence|Char|(NY)|Record Qualifier|Perm|CM
+CMPRESP|CM Pre-specified|Char|(NY)|Variable Qualifier|Perm|CM
+CMREASND|Reason Medication Not Collected|Char|x|Record Qualifier|Perm|CM
+CMROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|CM
+CMRSDISC|Reason the Intervention Was Discontinued|Char|x|Record Qualifier|Perm|CM
+CMSCAT|Subcategory for Medication|Char|x|Grouping Qualifier|Perm|CM
+CMSEQ|Sequence Number|Num|x|Identifier|Req|CM
+CMSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|CM
+CMSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|CM
+CMSTDTC|Start Date/Time of Medication|Char|ISO 8601|Timing|Perm|CM
+CMSTDY|Study Day of Start of Medication|Num|x|Timing|Perm|CM
+CMSTRF|Start Relative to Reference Period|Char|(STENRF)|Timing|Perm|CM
+CMSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|CM
+CMSTTPT|Start Reference Time Point|Char|x|Timing|Perm|CM
+CMTRT|Reported Name of Drug, Med, or Therapy|Char|x|Topic|Req|CM
+CODTC|Date/Time of Comment|Char|ISO 8601|Timing|Perm|CO
+CODY|Study Day of Comment|Num|x|Timing|Perm|CO
+COEVAL|Evaluator|Char|*|Record Qualifier|Perm|CO
+COEVALID|Evaluator Identifier|Char|(MEDEVAL)|Record Qualifier|Perm|CO
+COMPLFL|Completers Population Flag |Char|Y,N|x|Cond|ADAM
+COREF|Comment Reference|Char|x|Record Qualifier|Perm|CO
+COSEQ|Sequence Number|Num|x|Identifier|Req|CO
+COUNTRY|Country|Char|ISO 3166-1 Alpha-3|Record Qualifier|Req|DM
+COVAL|Comment|Char|x|Topic|Req|CO
+CVBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|MK
+CVCAT|Category for Cardiovascular Test|Char|*|Grouping Qualifier|Perm|MK
+CVDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|MK
+CVDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|MK
+CVDTC|Date/Time of Test|Char|ISO 8601|Timing|Exp|MK
+CVDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|MK
+CVELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|MK
+CVEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|MK
+CVEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|MK
+CVGRPID|Group ID|Char|x|Identifier|Perm|MK
+CVLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|MK
+CVLNKGRP|Link Group|Char|x|Identifier|Perm|MK
+CVLNKID|Link ID|Char|x|Identifier|Perm|MK
+CVLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|MK
+CVLOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Perm|MK
+CVMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|MK
+CVORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|MK
+CVORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|MK
+CVPOS|Position of Subject During Observation|Char|(POSITION)|Record Qualifier|Perm|MK
+CVREASND|Reason Not Done|Char|x|Record Qualifier|Perm|MK
+CVREFID|Reference ID|Char|x|Identifier|Perm|MK
+CVRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|MK
+CVSCAT|Subcategory for Cardiovascular Test|Char|*|Grouping Qualifier|Perm|MK
+CVSEQ|Sequence Number|Num|x|Identifier|Req|MK
+CVSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|MK
+CVSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|MK
+CVSTRESC|Character Result/Finding in Std Format|Char|*|Result Qualifier|Exp|MK
+CVSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|MK
+CVSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|MK
+CVTEST|Name of Cardiovascular Test|Char|(CVTEST)|Synonym Qualifier|Req|MK
+CVTESTCD|Short Name of Cardiovascular Test|Char|(CVTESTCD)|Topic|Req|MK
+CVTPT|Planned Time Point Name|Char|x|Timing|Perm|MK
+CVTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|MK
+CVTPTREF|Time Point Reference|Char|x|Timing|Perm|MK
+DACAT|Category|Char|*|Grouping Qualifier|Perm|CV
+DADTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|CV
+DADY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|CV
+DAGRPID|Group ID|Char|x|Identifier|Perm|CV
+DAORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|CV
+DAORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|CV
+DAREASND|Reason Not Done|Char|x|Record Qualifier|Perm|CV
+DAREFID|Reference ID|Char|x|Identifier|Perm|CV
+DASCAT|Subcategory|Char|*|Grouping Qualifier|Perm|CV
+DASEQ|Sequence Number|Num|x|Identifier|Req|CV
+DASPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|CV
+DASTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|CV
+DASTRESC|Result or Finding in Standard Format|Char|x|Result Qualifier|Exp|CV
+DASTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|CV
+DASTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|CV
+DATEST|Name of Accountability Assessment|Char|(DATEST)|Synonym Qualifier|Req|CV
+DATESTCD|Short Name of Accountability Assessment|Char|(DATESTCD)|Topic|Req|CV
+DDDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|DA
+DDDY|Study Day of Collection|Num|x|Timing|Perm|DA
+DDEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|DA
+DDORRES|Result or Finding as Collected|Char|x|Result Qualifier|Exp|DA
+DDRESCAT|Result Category|Char|*|Variable Qualifier|Perm|DA
+DDSEQ|Sequence Number|Num|x|Identifier|Req|DA
+DDSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|DA
+DDTEST|Death Detail Assessment Name|Char|(DTHDX)|Synonym Qualifier|Req|DA
+DDTESTCD|Death Detail Assessment Short Name|Char|(DTHDXCD)|Topic|Req|DA
+DMDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|DM
+DMDY|Study Day of Collection|Num|x|Timing|Perm|DM
+DOMAIN|Domain Abbreviation|Char|CO|Identifier|Req|CO
+DSCAT|Category for Disposition Event|Char|(DSCAT)|Grouping Qualifier|Exp|DS
+DSDECOD|Standardized Disposition Term|Char|(NCOMPLT)(PROTMLST)|Synonym Qualifier|Req|DS
+DSDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|DS
+DSDY|Study Day of Collection|Num|x|Timing|Exp|DS
+DSGRPID|Group ID|Char|x|Identifier|Perm|DS
+DSREFID|Reference ID|Char|x|Identifier|Perm|DS
+DSSCAT|Subcategory for Disposition Event|Char|*|Grouping Qualifier|Perm|DS
+DSSEQ|Sequence Number|Num|x|Identifier|Req|DS
+DSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|DS
+DSSTDTC|Start Date/Time of Disposition Event|Char|ISO 8601|Timing|Exp|DS
+DSSTDY|Study Day of Start of Disposition Event|Num|x|Timing|Perm|DS
+DSTERM|Reported Term for the Disposition Event|Char|x|Topic|Req|DS
+DTHDTC|Date/Time of Death|Char|ISO 8601|Record Qualifier|Exp|DM
+DTHFL|Subject Death Flag|Char|(NY)|Record Qualifier|Exp|DM
+DVCAT|Category for Protocol Deviation|Char|*|Grouping Qualifier|Perm|DV
+DVDECOD|Protocol Deviation Coded Term|Char|*|Synonym Qualifier|Perm|DV
+DVENDTC|End Date/Time of Deviation|Char|ISO 8601|Timing|Perm|DV
+DVENDY|Study Day of End of Observation|Num|x|Timing|Perm|DV
+DVREFID|Reference ID|Char|x|Identifier|Perm|DV
+DVSCAT|Subcategory for Protocol Deviation|Char|*|Grouping Qualifier|Perm|DV
+DVSEQ|Sequence Number|Num|x|Identifier|Req|DV
+DVSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|DV
+DVSTDTC|Start Date/Time of Deviation|Char|ISO 8601|Timing|Perm|DV
+DVSTDY|Study Day of Start of Deviation Event|Num|x|Timing|Perm|DV
+DVTERM|Protocol Deviation Term|Char|x|Topic|Req|DV
+ECADJ|Reason for Dose Adjustment|Char|x|Record Qualifier|Perm|EX
+ECCAT|Category of Treatment|Char|*|Grouping Qualifier|Perm|EX
+ECDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|EX
+ECDOSE|Dose|Num|x|Record Qualifier|Exp|EX
+ECDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Exp|EX
+ECDOSFRQ|Dosing Frequency per Interval|Char|(FREQ)|Variable Qualifier|Perm|EX
+ECDOSRGM|Intended Dose Regimen|Char|x|Variable Qualifier|Perm|EX
+ECDOSTOT|Total Daily Dose|Num|x|Record Qualifier|Perm|EX
+ECDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|EX
+ECDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Exp|EX
+ECDUR|Duration of Treatment|Char|ISO 8601|Timing|Perm|EX
+ECELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|EX
+ECENDTC|End Date/Time of Treatment|Char|ISO 8601|Timing|Exp|EX
+ECENDY|Study Day of End of Treatment|Num|x|Timing|Perm|EX
+ECFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|EX
+ECGRPID|Group ID|Char|x|Identifier|Perm|EX
+ECLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|EX
+ECLNKGRP|Link Group ID|Char|x|Identifier|Perm|EX
+ECLNKID|Link ID|Char|x|Identifier|Perm|EX
+ECLOC|Location of Dose Administration|Char|(LOC)|Record Qualifier|Perm|EX
+ECLOT|Lot Number|Char|x|Record Qualifier|Perm|EX
+ECMOOD|Mood|Char|(BRDGMOOD)|Record Qualifier|Perm|EX
+ECOCCUR|Occurrence|Char|(NY)|Record Qualifier|Perm|EX
+ECPORTOT|Portion or Totality|Char|(PORTOT)|Variable Qualifier|Perm|EX
+ECPRESP|Pre-Specified|Char|(NY)|Variable Qualifier|Perm|EX
+ECPSTRG|Pharmaceutical Strength|Num|x|Record Qualifier|Perm|EX
+ECPSTRGU|Pharmaceutical Strength Units|Char|*|Variable Qualifier|Perm|EX
+ECREFID|Reference ID|Char|x|Identifier|Perm|EX
+ECRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|EX
+ECROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|EX
+ECSCAT|Subcategory of Treatment|Char|*|Grouping Qualifier|Perm|EX
+ECSEQ|Sequence Number|Num|x|Identifier|Req|EX
+ECSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|EX
+ECSTDTC|Start Date/Time of Treatment|Char|ISO 8601|Timing|Exp|EX
+ECSTDY|Study Day of Start of Treatment|Num|x|Timing|Perm|EX
+ECTPT|Planned Time Point Name|Char|x|Timing|Perm|EX
+ECTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|EX
+ECTPTREF|Time Point Reference|Char|x|Timing|Perm|EX
+ECTRT|Name of Treatment|Char|*|Topic|Req|EX
+EGBEATNO|ECG Beat Number|Num|x|Variable Qualifier|Perm|DD
+EGBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|DD
+EGCAT|Category for ECG|Char|*|Grouping Qualifier|Perm|DD
+EGDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|DD
+EGDTC|Date/Time of ECG|Char|ISO 8601|Timing|Exp|DD
+EGDY|Study Day of ECG|Num|x|Timing|Perm|DD
+EGELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|DD
+EGEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|DD
+EGEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|DD
+EGGRPID|Group ID|Char|x|Identifier|Perm|DD
+EGLEAD|Lead Location Used for Measurement|Char|(EGLEAD)|Record Qualifier|Perm|DD
+EGLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|DD
+EGMETHOD|Method of Test or Examination|Char|(EGMETHOD)|Record Qualifier|Perm|DD
+EGNAM|Vendor Name|Char|x|Record Qualifier|Perm|DD
+EGORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|DD
+EGORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|DD
+EGPOS|ECG Position of Subject|Char|(POSITION)|Record Qualifier|Perm|DD
+EGREASND|Reason ECG Not Done|Char|x|Record Qualifier|Perm|DD
+EGREFID|ECG Reference ID|Char|x|Identifier|Perm|DD
+EGREPNUM|Repetition Number|Num|x|Record Qualifier|Perm|DD
+EGRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|DD
+EGSCAT|Subcategory for ECG|Char|*|Grouping Qualifier|Perm|DD
+EGSEQ|Sequence Number|Num|x|Identifier|Req|DD
+EGSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|DD
+EGSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|DD
+EGSTRESC|Character Result/Finding in Std Format|Char|(EGSTRESC)(HESTRESC)|Result Qualifier|Exp|DD
+EGSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|DD
+EGSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|DD
+EGTEST|ECG Test or Examination Name|Char|(EGTEST)(HETEST)|Synonym Qualifier|Req|DD
+EGTESTCD|ECG Test or Examination Short Name|Char|(EGTESTCD)(HETESTCD)|Topic|Req|DD
+EGTPT|Planned Time Point Name|Char|x|Timing|Perm|DD
+EGTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|DD
+EGTPTREF|Time Point Reference|Char|x|Timing|Perm|DD
+EGXFN|ECG External File Path|Char|x|Record Qualifier|Perm|DD
+ELEMENT|Description of Element|Char|*|Synonym Qualifier|Perm|SE
+ENRLFL|Enrolled Population Flag |Char|Y,N|x|Cond|ADAM
+EPOCH|Epoch|Char|(EPOCH)|Timing|Perm|SE
+ETCD|Element Code|Char|*|Topic|Req|SE
+ETHNIC|Ethnicity|Char|(ETHNIC)|Record Qualifier|Perm|DM
+EXADJ|Reason for Dose Adjustment|Char|*|Record Qualifier|Perm|EC
+EXCAT|Category of Treatment|Char|*|Grouping Qualifier|Perm|EC
+EXDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|EC
+EXDOSE|Dose|Num|x|Record Qualifier|Exp|EC
+EXDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Exp|EC
+EXDOSFRQ|Dosing Frequency per Interval|Char|(FREQ)|Variable Qualifier|Perm|EC
+EXDOSRGM|Intended Dose Regimen|Char|x|Variable Qualifier|Perm|EC
+EXDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|EC
+EXDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Exp|EC
+EXDUR|Duration of Treatment|Char|ISO 8601|Timing|Perm|EC
+EXELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|EC
+EXENDTC|End Date/Time of Treatment|Char|ISO 8601|Timing|Exp|EC
+EXENDY|Study Day of End of Treatment|Num|x|Timing|Perm|EC
+EXFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|EC
+EXGRPID|Group ID|Char|x|Identifier|Perm|EC
+EXLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|EC
+EXLNKGRP|Link Group ID|Char|x|Identifier|Perm|EC
+EXLNKID|Link ID|Char|x|Identifier|Perm|EC
+EXLOC|Location of Dose Administration|Char|(LOC)|Record Qualifier|Perm|EC
+EXLOT|Lot Number|Char|x|Record Qualifier|Perm|EC
+EXREFID|Reference ID|Char|x|Identifier|Perm|EC
+EXRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|EC
+EXROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|EC
+EXSCAT|Subcategory of Treatment|Char|*|Grouping Qualifier|Perm|EC
+EXSEQ|Sequence Number|Num|x|Identifier|Req|EC
+EXSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|EC
+EXSTDTC|Start Date/Time of Treatment|Char|ISO 8601|Timing|Exp|EC
+EXSTDY|Study Day of Start of Treatment|Num|x|Timing|Perm|EC
+EXTPT|Planned Time Point Name|Char|x|Timing|Perm|EC
+EXTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|EC
+EXTPTREF|Time Point Reference|Char|x|Timing|Perm|EC
+EXTRT|Name of Treatment|Char|*|Topic|Req|EC
+FABLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|VS
+FACAT|Category for Findings About|Char|*|Grouping Qualifier|Perm|VS
+FADTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|VS
+FADY|Study Day of Collection|Num|x|Timing|Perm|VS
+FAEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|VS
+FAGRPID|Group ID|Char|x|Identifier|Perm|VS
+FALAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|VS
+FALOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|VS
+FALOC|Location of the Finding About|Char|(LOC)|Record Qualifier|Perm|VS
+FAOBJ|Object of the Observation|Char|x|Record Qualifier|Req|VS
+FAORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|VS
+FAORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|VS
+FAREASND|Reason Not Performed|Char|x|Record Qualifier|Perm|VS
+FASCAT|Subcategory for Findings About|Char|*|Grouping Qualifier|Perm|VS
+FASEQ|Sequence Number|Num|x|Identifier|Req|VS
+FASFL|Full Analysis Set Population Flag |Char|Y,N|x|Cond|ADAM
+FASPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|VS
+FASTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|VS
+FASTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|VS
+FASTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|VS
+FASTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|VS
+FATEST|Findings About Test Name|Char|*|Synonym Qualifier|Req|VS
+FATESTCD|Findings About Test Short Name|Char|*|Topic|Req|VS
+FOCID|Focus of Study-Specific Interest|Char|x|Identifier|Perm|IE
+FTBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|RP
+FTCAT|Category|Char|(FTCAT)|Grouping Qualifier|Req|RP
+FTDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|RP
+FTDTC|Date/Time of Test|Char|ISO 8601|Timing|Exp|RP
+FTDY|Study Day of Test|Num|x|Timing|Perm|RP
+FTELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|RP
+FTEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|RP
+FTGRPID|Group ID|Char|x|Identifier|Perm|RP
+FTLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|RP
+FTMETHOD|Method of Test|Char|(METHOD)|Record Qualifier|Perm|RP
+FTNAM|Vendor Name|Char|x|Record Qualifier|Perm|RP
+FTORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|RP
+FTORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|RP
+FTPOS|Position of Subject During Observation|Char|(POSITION)|Record Qualifier|Perm|RP
+FTREASND|Reason Not Done|Char|x|Record Qualifier|Perm|RP
+FTREFID|Reference ID|Char|x|Identifier|Perm|RP
+FTREPNUM|Repetition Number|Num|x|Record Qualifier|Perm|RP
+FTRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|RP
+FTSCAT|Subcategory|Char|x|Grouping Qualifier|Perm|RP
+FTSEQ|Sequence Number|Num|x|Identifier|Req|RP
+FTSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|RP
+FTSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|RP
+FTSTRESC|Result or Finding in Standard Format|Char|x|Result Qualifier|Exp|RP
+FTSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|RP
+FTSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|RP
+FTTEST|Name of Test|Char|*|Synonym Qualifier|Req|RP
+FTTESTCD|Short Name of Test|Char|*|Topic|Req|RP
+FTTPT|Planned Time Point Name|Char|x|Timing|Perm|RP
+FTTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|RP
+FTTPTREF|Time Point Reference|Char|x|Timing|Perm|RP
+FTXFN|External File Path|Char|x|Record Qualifier|Perm|RP
+HOCAT|Category for Healthcare Encounter|Char|*|Grouping Qualifier|Perm|HO
+HODECOD|Dictionary-Derived Term|Char|*|Synonym Qualifier|Perm|HO
+HODTC|Date/Time of Event Collection|Char|ISO 8601|Timing|Perm|HO
+HODUR|Duration of Healthcare Encounter|Char|ISO 8601|Timing|Perm|HO
+HODY|Study Day of Event Collection|Num|x|Timing|Perm|HO
+HOENDTC|End Date/Time of Healthcare Encounter|Char|ISO 8601|Timing|Perm|HO
+HOENDY|Study Day of End of Healthcare Encounter|Num|x|Timing|Perm|HO
+HOENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|HO
+HOENTPT|End Reference Time Point|Char|x|Timing|Perm|HO
+HOGRPID|Group ID|Char|x|Identifier|Perm|HO
+HOOCCUR|Healthcare Encounter Occurrence|Char|(NY)|Record Qualifier|Perm|HO
+HOPRESP|Pre-Specified Healthcare Encounter|Char|(NY)|Variable Qualifier|Perm|HO
+HOREASND|Reason Healthcare Encounter Not Done|Char|x|Record Qualifier|Perm|HO
+HOREFID|Reference ID|Char|x|Identifier|Perm|HO
+HOSCAT|Subcategory for Healthcare Encounter|Char|*|Grouping Qualifier|Perm|HO
+HOSEQ|Sequence Number|Num|x|Identifier|Req|HO
+HOSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|HO
+HOSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|HO
+HOSTDTC|Start Date/Time of Healthcare Encounter|Char|ISO 8601|Timing|Exp|HO
+HOSTDY|Study Day of Start of Encounter|Num|x|Timing|Perm|HO
+HOSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|HO
+HOSTTPT|Start Reference Time Point|Char|x|Timing|Perm|HO
+HOTERM|Healthcare Encounter Term|Char|x|Topic|Req|HO
+IDVAR|Identifying Variable|Char|*|Record Qualifier|Perm|CO
+IDVARVAL|Identifying Variable Value|Char|x|Record Qualifier|Perm|CO
+IECAT|Inclusion/Exclusion Category|Char|(IECAT)|Grouping Qualifier|Req|EG
+IEDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|EG
+IEDY|Study Day of Collection|Num|x|Timing|Perm|EG
+IEORRES|I/E Criterion Original Result|Char|(NY)|Result Qualifier|Req|EG
+IESCAT|Inclusion/Exclusion Subcategory|Char|*|Grouping Qualifier|Perm|EG
+IESEQ|Sequence Number|Num|x|Identifier|Req|EG
+IESPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|EG
+IESTRESC|I/E Criterion Result in Std Format|Char|(NY)|Result Qualifier|Req|EG
+IETEST|Inclusion/Exclusion Criterion|Char|x|Synonym Qualifier|Req|EG
+IETESTCD|Inclusion/Exclusion Criterion Short Name|Char|*|Topic|Req|EG
+INVID|Investigator Identifier|Char|x|Record Qualifier|Perm|DM
+INVNAM|Investigator Name|Char|x|Synonym Qualifier|Perm|DM
+ISBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|FA
+ISCAT|Category for Immunogenicity Test|Char|*|Synonym Qualifier|Perm|FA
+ISDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|FA
+ISDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|FA
+ISGRPID|Group ID|Char|x|Identifier|Perm|FA
+ISLLOQ|Lower Limit of Quantitation|Num|x|Variable Qualifier|Exp|FA
+ISLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|FA
+ISMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|FA
+ISNAM|Vendor Name|Char|x|Record Qualifier|Perm|FA
+ISORRES|Results or Findings in Original Units|Char|x|Result Qualifier|Exp|FA
+ISORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Exp|FA
+ISREASND|Reason Not Done|Char|x|Record Qualifier|Perm|FA
+ISREFID|Reference ID|Char|x|Identifier|Perm|FA
+ISSCAT|Subcategory for Immunogenicity Test|Char|*|Grouping Qualifier|Perm|FA
+ISSEQ|Sequence Number|Num|x|Identifier|Req|FA
+ISSPEC|Specimen Type|Char|(SPECTYPE)|Record Qualifier|Perm|FA
+ISSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|FA
+ISSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|FA
+ISSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|FA
+ISSTRESN|Numeric Results/Findings in Std. Units|Num|x|Result Qualifier|Exp|FA
+ISSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Exp|FA
+ISTEST|Immunogenicity Test or Examination Name|Char|(ISTEST)|Synonym Qualifier|Req|FA
+ISTESTCD|Immunogenicity Test/Exam Short Name|Char|(ISTESTCD)|Topic|Req|FA
+ITTFL|Intent-To-Treat Population Flag |Char|Y,N|x|Cond|ADAM
+LBBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|FT
+LBCAT|Category for Lab Test|Char|*|Grouping Qualifier|Exp|FT
+LBDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|FT
+LBDTC|Date/Time of Specimen Collection|Char|ISO 8601|Timing|Exp|FT
+LBDY|Study Day of Specimen Collection|Num|x|Timing|Perm|FT
+LBELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|FT
+LBENDTC|End Date/Time of Specimen Collection|Char|ISO 8601|Timing|Perm|FT
+LBENDY|Study Day of End of Observation|Num|x|Timing|Perm|FT
+LBFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|FT
+LBGRPID|Group ID|Char|x|Identifier|Perm|FT
+LBLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|FT
+LBLOINC|LOINC Code|Char|*|Synonym Qualifier|Perm|FT
+LBMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|FT
+LBNAM|Vendor Name|Char|x|Record Qualifier|Perm|FT
+LBNRIND|Reference Range Indicator|Char|(NRIND)|Variable Qualifier|Exp|FT
+LBORNRHI|Reference Range Upper Limit in Orig Unit|Char|x|Variable Qualifier|Exp|FT
+LBORNRLO|Reference Range Lower Limit in Orig Unit|Char|x|Variable Qualifier|Exp|FT
+LBORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|FT
+LBORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Exp|FT
+LBREASND|Reason Test Not Done|Char|x|Record Qualifier|Perm|FT
+LBREFID|Specimen ID|Char|x|Identifier|Perm|FT
+LBRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|FT
+LBSCAT|Subcategory for Lab Test|Char|*|Grouping Qualifier|Perm|FT
+LBSEQ|Sequence Number|Num|x|Identifier|Req|FT
+LBSPCCND|Specimen Condition|Char|(SPECCOND)|Record Qualifier|Perm|FT
+LBSPEC|Specimen Type|Char|(SPECTYPE)|Record Qualifier|Perm|FT
+LBSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|FT
+LBSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|FT
+LBSTNRC|Reference Range for Char Rslt-Std Units|Char|x|Variable Qualifier|Perm|FT
+LBSTNRHI|Reference Range Upper Limit-Std Units|Num|x|Variable Qualifier|Exp|FT
+LBSTNRLO|Reference Range Lower Limit-Std Units|Num|x|Variable Qualifier|Exp|FT
+LBSTREFC|Reference Result in Standard Format|Char|x|Variable Qualifier|Exp|FT
+LBSTRESC|Character Result/Finding in Std Format|Char|(LBSTRESC)|Result Qualifier|Exp|FT
+LBSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|FT
+LBSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Exp|FT
+LBTEST|Lab Test or Examination Name|Char|(LBTEST)|Synonym Qualifier|Req|FT
+LBTESTCD|Lab Test or Examination Short Name.|Char|(LBTESTCD)|Topic|Req|FT
+LBTOX|Toxicity|Char|*|Variable Qualifier|Perm|FT
+LBTOXGR|Standard Toxicity Grade|Char|*|Record Qualifier|Perm|FT
+LBTPT|Planned Time Point Name|Char|x|Timing|Perm|FT
+LBTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|FT
+LBTPTREF|Time Point Reference|Char|x|Timing|Perm|FT
+MBBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|IE
+MBCAT|Category|Char|*|Grouping Qualifier|Perm|IE
+MBDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|IE
+MBDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|IE
+MBDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|IE
+MBDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|IE
+MBELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|IE
+MBFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|IE
+MBGRPID|Group ID|Char|x|Identifier|Perm|IE
+MBLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|IE
+MBLNKGRP|Link Group ID|Char|x|Identifier|Perm|IE
+MBLNKID|Link ID|Char|x|Identifier|Perm|IE
+MBLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|IE
+MBLOC|Specimen Collection Location|Char|(LOC)|Record Qualifier|Perm|IE
+MBLOINC|LOINC Code|Char|x|Synonym Qualifier|Perm|IE
+MBMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Exp|IE
+MBNAM|Laboratory/Vendor Name|Char|x|Record Qualifier|Perm|IE
+MBORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|IE
+MBORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|IE
+MBREASND|Reason Not Done|Char|x|Record Qualifier|Perm|IE
+MBREFID|Reference ID|Char|x|Identifier|Perm|IE
+MBRESCAT|Result Category|Char|x|Variable Qualifier|Perm|IE
+MBRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|IE
+MBSCAT|Subcategory|Char|*|Grouping Qualifier|Perm|IE
+MBSEQ|Sequence Number|Num|x|Identifier|Req|IE
+MBSPCCND|Specimen Condition|Char|(SPECCOND)|Record Qualifier|Perm|IE
+MBSPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Perm|IE
+MBSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|IE
+MBSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|IE
+MBSTRESC|Result or Finding in Standard Format|Char|x|Result Qualifier|Exp|IE
+MBSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|IE
+MBSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|IE
+MBTEST|Microbiology Test or Finding Name|Char|(MBTEST)|Synonym Qualifier|Req|IE
+MBTESTCD|Microbiology Test or Finding Short Name|Char|(MBTESTCD)|Topic|Req|IE
+MBTPT|Planned Time Point Name|Char|x|Timing|Perm|IE
+MBTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|IE
+MBTPTREF|Time Point Reference|Char|x|Timing|Perm|IE
+MBTSTDTL|Measurement, Test or Examination Detail|Char|*|Variable Qualifier|Perm|IE
+MHBODSYS|Body System or Organ Class|Char|*|Record Qualifier|Perm|MH
+MHCAT|Category for Medical History|Char|*|Grouping Qualifier|Perm|MH
+MHDECOD|Dictionary-Derived Term|Char|*|Synonym Qualifier|Perm|MH
+MHDTC|Date/Time of History Collection|Char|ISO 8601|Timing|Perm|MH
+MHDY|Study Day of History Collection|Num|x|Timing|Perm|MH
+MHENDTC|End Date/Time of Medical History Event|Char|ISO 8601|Timing|Perm|MH
+MHENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|MH
+MHENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|MH
+MHENTPT|End Reference Time Point|Char|x|Timing|Perm|MH
+MHEVDTYP|Medical History Event Date Type|Char|(MHEDTTYP)|Variable Qualifier|Perm|MH
+MHGRPID|Group ID|Char|x|Identifier|Perm|MH
+MHMODIFY|Modified Reported Term|Char|x|Synonym Qualifier|Perm|MH
+MHOCCUR|Medical History Occurrence|Char|(NY)|Record Qualifier|Perm|MH
+MHPRESP|Medical History Event Pre-Specified|Char|(NY)|Variable Qualifier|Perm|MH
+MHREASND|Reason Medical History Not Collected|Char|x|Record Qualifier|Perm|MH
+MHREFID|Reference ID|Char|x|Identifier|Perm|MH
+MHSCAT|Subcategory for Medical History|Char|*|Grouping Qualifier|Perm|MH
+MHSEQ|Sequence Number|Num|x|Identifier|Req|MH
+MHSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|MH
+MHSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|MH
+MHSTDTC|Start Date/Time of Medical History Event|Char|ISO 8601|Timing|Perm|MH
+MHTERM|Reported Term for the Medical History|Char|x|Topic|Req|MH
+MIBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Exp|LB
+MICAT|Category for Microscopic Finding|Char|*|Grouping Qualifier|Perm|LB
+MIDIR|Specimen Directionality within Subject|Char|(DIR)|Variable Qualifier|Perm|LB
+MIDS|Disease Milestone Instance Name|Char|*|Topic|Req|SM
+MIDSDTC|Disease Milestone Instance Date/Time|Char|ISO 8601|Timing|Perm|ML
+MIDSTYPE|Disease Milestone Type|Char|*|Record Qualifier|Req|SM
+MIDTC|Date/Time of Specimen Collection|Char|ISO 8601|Timing|Exp|LB
+MIDY|Study Day of Specimen Collection|Num|x|Timing|Perm|LB
+MIEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|LB
+MIGRPID|Group ID|Char|x|Identifier|Perm|LB
+MILAT|Specimen Laterality within Subject|Char|(LAT)|Variable Qualifier|Perm|LB
+MILOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|LB
+MILOC|Specimen Collection Location|Char|(LOC)|Record Qualifier|Perm|LB
+MIMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|LB
+MINAM|Laboratory/Vendor Name|Char|x|Record Qualifier|Perm|LB
+MIORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|LB
+MIORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|LB
+MIREASND|Reason Not Done|Char|x|Record Qualifier|Perm|LB
+MIREFID|Reference ID|Char|x|Identifier|Perm|LB
+MIRESCAT|Result Category|Char|*|Variable Qualifier|Perm|LB
+MISCAT|Subcategory for Microscopic Finding|Char|*|Grouping Qualifier|Perm|LB
+MISEQ|Sequence Number|Num|x|Identifier|Req|LB
+MISPCCND|Specimen Condition|Char|(SPECCOND)|Record Qualifier|Exp|LB
+MISPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Req|LB
+MISPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|LB
+MISTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|LB
+MISTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|LB
+MISTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|LB
+MISTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|LB
+MITEST|Microscopic Examination Name|Char|(MITS)|Synonym Qualifier|Req|LB
+MITESTCD|Microscopic Examination Short Name|Char|(MITSCD)|Topic|Req|LB
+MITSTDTL|Microscopic Examination Detail|Char|(MIFTSDTL)|Record Qualifier|Perm|LB
+MKBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|MO
+MKCAT|Category for Musculoskeletal Test|Char|*|Grouping Qualifier|Perm|MO
+MKDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|MO
+MKDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|MO
+MKDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|MO
+MKDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|MO
+MKELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|MO
+MKEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|MO
+MKEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|MO
+MKGRPID|Group ID|Char|x|Identifier|Perm|MO
+MKLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|MO
+MKLNKGRP|Link Group ID|Char|x|Identifier|Perm|MO
+MKLNKID|Link ID|Char|x|Identifier|Perm|MO
+MKLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|MO
+MKLOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Exp|MO
+MKMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|MO
+MKORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|MO
+MKORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|MO
+MKPOS|Position of Subject|Char|(POSITION)|Record Qualifier|Perm|MO
+MKREASND|Reason Not Done|Char|x|Record Qualifier|Perm|MO
+MKREFID|Reference ID|Char|x|Identifier|Perm|MO
+MKRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|MO
+MKSCAT|Subcategory for Musculoskeletal Test|Char|*|Grouping Qualifier|Perm|MO
+MKSEQ|Sequence Number|Num|x|Identifier|Req|MO
+MKSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|MO
+MKSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|MO
+MKSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|MO
+MKSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|MO
+MKSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|MO
+MKTEST|Name of Musculoskeletal Test|Char|(MUSCTS)|Synonym Qualifier|Req|MO
+MKTESTCD|Short Name of Musculoskeletal Test|Char|(MUSCTSCD)|Topic|Req|MO
+MKTPT|Planned Time Point Name|Char|x|Timing|Perm|MO
+MKTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|MO
+MKTPTREF|Time Point Reference|Char|x|Timing|Perm|MO
+MLCAT|Category for Meal|Char|*|Grouping Qualifier|Perm|ML
+MLDOSE|Dose|Num|x|Record Qualifier|Perm|ML
+MLDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Perm|ML
+MLDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|ML
+MLDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Perm|ML
+MLDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|ML
+MLDUR|Duration of Meal|Char|ISO 8601|Timing|Perm|ML
+MLDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|ML
+MLELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|ML
+MLENDTC|End Date/Time of Meal|Char|ISO 8601|Timing|Perm|ML
+MLENDY|Study Day of End of Meal|Num|x|Timing|Perm|ML
+MLGRPID|Group ID|Char|x|Identifier|Perm|ML
+MLOCCUR|ML Occurrence|Char|(NY)|Record Qualifier|Perm|ML
+MLPRESP|ML Pre-specified|Char|(NY)|Variable Qualifier|Perm|ML
+MLREASND|Reason Meal Not Collected|Char|x|Record Qualifier|Perm|ML
+MLRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|ML
+MLSCAT|Subcategory for Meal|Char|*|Grouping Qualifier|Perm|ML
+MLSEQ|Sequence Number|Num|x|Identifier|Req|ML
+MLSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|ML
+MLSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|ML
+MLSTDTC|Start Date/Time of Meal|Char|ISO 8601|Timing|Perm|ML
+MLSTDY|Study Day of Start of Meal|Num|x|Timing|Perm|ML
+MLTPT|Planned Time Point Name|Char|x|Timing|Perm|ML
+MLTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|ML
+MLTPTREF|Time Point Reference|Char|x|Timing|Perm|ML
+MLTRT|Name of Meal|Char|*|Topic|Req|ML
+MOANMETH|Analysis Method|Char|*|Record Qualifier|Perm|MB
+MOBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Exp|MB
+MOCAT|Category for Test|Char|*|Grouping Qualifier|Perm|MB
+MODIR|Specimen Directionality within Subject|Char|(DIR)|Variable Qualifier|Perm|MB
+MODRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|MB
+MODTC|Date/Time of Test|Char|ISO 8601|Timing|Exp|MB
+MODY|Study Day of Test|Num|x|Timing|Perm|MB
+MOELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|MB
+MOEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|MB
+MOGRPID|Group ID|Char|x|Identifier|Perm|MB
+MOLAT|Specimen Laterality within Subject|Char|(LAT)|Variable Qualifier|Perm|MB
+MOLNKID|Link ID|Char|x|Identifier|Perm|MB
+MOLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|MB
+MOLOC|Location Used for Measurement|Char|(LOC)|Record Qualifier|Perm|MB
+MOMETHOD|Method of Procedure Test|Char|(METHOD)|Record Qualifier|Perm|MB
+MONAM|Vendor Name|Char|x|Record Qualifier|Perm|MB
+MOORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|MB
+MOORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|MB
+MOPORTOT|Portion or Totality|Char|(PORTOT)|Variable Qualifier|Perm|MB
+MOPOS|Position of Subject|Char|(POSITION)|Record Qualifier|Perm|MB
+MOREASND|Reason Test Not Performed|Char|x|Record Qualifier|Perm|MB
+MOREFID|Reference ID|Char|x|Identifier|Perm|MB
+MORFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|MB
+MOSCAT|Subcategory for Test|Char|*|Grouping Qualifier|Perm|MB
+MOSEQ|Sequence Number|Num|x|Identifier|Req|MB
+MOSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|MB
+MOSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|MB
+MOSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|MB
+MOSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|MB
+MOSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|MB
+MOTEST|Test or Examination Name|Char|*|Synonym Qualifier|Req|MB
+MOTESTCD|Test or Examination Short Name|Char|*|Topic|Req|MB
+MOTPT|Planned Time Point Name|Char|x|Timing|Perm|MB
+MOTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|MB
+MOTPTREF|Time Point Reference|Char|x|Timing|Perm|MB
+MOXFN|External File Path|Char|x|Record Qualifier|Perm|MB
+MSACPTFL|Accepted Record Flag|Char|(NY)|Record Qualifier|Perm|IS
+MSAGENT|Agent Name|Char|x|Variable Qualifier|Exp|IS
+MSANMETH|Analysis Method|Char|x|Record Qualifier|Perm|IS
+MSBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|IS
+MSCAT|Category|Char|*|Grouping Qualifier|Perm|IS
+MSCONC|Agent Concentration|Num|x|Variable Qualifier|Perm|IS
+MSCONCU|Agent Concentration Units|Char|(UNIT)|Variable Qualifier|Perm|IS
+MSDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|IS
+MSDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|IS
+MSDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|IS
+MSDUR|Duration|Char|ISO 8601|Timing|Perm|IS
+MSDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|IS
+MSELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|IS
+MSENDTC|End Date/Time of Observation|Char|ISO 8601|Timing|Perm|IS
+MSENDY|Study Day of End of Observation|Num|x|Timing|Perm|IS
+MSENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|IS
+MSENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|IS
+MSENTPT|End Reference Time Point|Char|x|Timing|Perm|IS
+MSEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|IS
+MSEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|IS
+MSEVINTX|Evaluation Interval Text|Char|x|Timing|Perm|IS
+MSEVLINT|Evaluation Interval|Char|ISO 8601|Timing|Perm|IS
+MSFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|IS
+MSGRPID|Group ID|Char|x|Identifier|Perm|IS
+MSLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|IS
+MSLLOQ|Lower Limit of Quantitation|Num|x|Variable Qualifier|Perm|IS
+MSLNKID|Link ID|Char|x|Identifier|Perm|IS
+MSLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|IS
+MSLOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Perm|IS
+MSLOINC|LOINC Code|Char|x|Synonym Qualifier|Perm|IS
+MSMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|IS
+MSMODIFY|Modified Reported Name|Char|x|Synonym Qualifier|Perm|IS
+MSNAM|Laboratory/Vendor Name|Char|x|Record Qualifier|Perm|IS
+MSNRIND|Normal/Reference Range Indicator|Char|x|Variable Qualifier|Perm|IS
+MSORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|IS
+MSORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|IS
+MSREASND|Reason Not Done|Char|x|Record Qualifier|Perm|IS
+MSREFID|Reference ID|Char|x|Identifier|Perm|IS
+MSREPNUM|Repetition Number|Num|x|Record Qualifier|Perm|IS
+MSRESCAT|Result Category|Char|(MSRESCAT)|Variable Qualifier|Perm|IS
+MSRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|IS
+MSSCAT|Subcategory|Char|*|Grouping Qualifier|Perm|IS
+MSSEQ|Sequence Number|Num|x|Identifier|Req|IS
+MSSPCCND|Specimen Condition|Char|(SPECCOND)|Record Qualifier|Perm|IS
+MSSPCUFL|Specimen Usability for the Test|Char|(NY)|Record Qualifier|Perm|IS
+MSSPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Perm|IS
+MSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|IS
+MSSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|IS
+MSSTRESC|Result or Finding in Standard Format|Char|x|Result Qualifier|Exp|IS
+MSSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|IS
+MSSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|IS
+MSSTRF|Start Relative to Reference Period|Char|(STENRF)|Timing|Perm|IS
+MSSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|IS
+MSSTTPT|Start Reference Time Point|Char|x|Timing|Perm|IS
+MSTEST|Name of Assessment|Char|(MSTEST)|Synonym Qualifier|Req|IS
+MSTESTCD|Short Name of Assessment|Char|(MSTESTCD)|Topic|Req|IS
+MSTPT|Planned Time Point Name|Char|x|Timing|Perm|IS
+MSTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|IS
+MSTPTREF|Time Point Reference|Char|x|Timing|Perm|IS
+MSTSTDTL|Measurement, Test or Examination Detail|Char|x|Variable Qualifier|Perm|IS
+MSULOQ|Upper Limit of Quantitation|Num|x|Variable Qualifier|Perm|IS
+MSXFN|External File Path|Char|x|Record Qualifier|Perm|IS
+NHOID|Non-host Organism ID|Char|x|Identifier|Perm|IS
+NVBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|MS
+NVCAT|Category for Nervous System Test|Char|x|Grouping Qualifier|Perm|MS
+NVDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|MS
+NVDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|MS
+NVDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|MS
+NVDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|MS
+NVELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|MS
+NVEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|MS
+NVEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|MS
+NVGRPID|Group ID|Char|x|Identifier|Perm|MS
+NVLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|MS
+NVLNKGRP|Link Group|Char|x|Identifier|Perm|MS
+NVLNKID|Link ID|Char|x|Identifier|Perm|MS
+NVLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|MS
+NVLOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Perm|MS
+NVMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|MS
+NVORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|MS
+NVORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|MS
+NVREASND|Reason Not Done|Char|x|Record Qualifier|Perm|MS
+NVREFID|Reference ID|Char|x|Identifier|Perm|MS
+NVRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|MS
+NVSCAT|Subcategory for Nervous System Test|Char|x|Grouping Qualifier|Perm|MS
+NVSEQ|Sequence Number|Num|x|Identifier|Req|MS
+NVSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|MS
+NVSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|MS
+NVSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|MS
+NVSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|MS
+NVSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|MS
+NVTEST|Name of Nervous System Test|Char|(NVTEST)|Synonym Qualifier|Req|MS
+NVTESTCD|Short Name of Nervous System Test|Char|(NVTESTCD)|Topic|Req|MS
+NVTPT|Planned Time Point Name|Char|x|Timing|Perm|MS
+NVTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|MS
+NVTPTREF|Time Point Reference|Char|x|Timing|Perm|MS
+OEACPTFL|Accepted Record Flag|Char|(NY)|Record Qualifier|Perm|NV
+OEBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|NV
+OECAT|Category for Ophthalmic Test or Exam|Char|*|Grouping Qualifier|Perm|NV
+OEDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|NV
+OEDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|NV
+OEDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|NV
+OEDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Exp|NV
+OEELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|NV
+OEEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|NV
+OEEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|NV
+OEGRPID|Group ID|Char|x|Identifier|Perm|NV
+OELAT|Laterality|Char|(LAT)|Variable Qualifier|Exp|NV
+OELNKGRP|Link Group|Char|x|Identifier|Perm|NV
+OELNKID|Link ID|Char|x|Identifier|Perm|NV
+OELOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|NV
+OELOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Exp|NV
+OEMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Exp|NV
+OENRIND|Normal/Reference Range Indicator|Char|(NRIND)|Variable Qualifier|Perm|NV
+OEORNRHI|Normal Range Upper Limit-Original Units|Char|x|Variable Qualifier|Perm|NV
+OEORNRLO|Normal Range Lower Limit-Original Units|Char|x|Variable Qualifier|Perm|NV
+OEORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|NV
+OEORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Exp|NV
+OEPORTOT|Portion or Totality|Char|(PORTOT)|Variable Qualifier|Perm|NV
+OEREASND|Reason Not Done|Char|x|Record Qualifier|Perm|NV
+OEREPNUM|Repetition Number|Num|x|Record Qualifier|Perm|NV
+OERESCAT|Result Category|Char|x|Variable Qualifier|Perm|NV
+OERFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|NV
+OESCAT|Subcategory for Ophthalmic Test or Exam|Char|*|Grouping Qualifier|Perm|NV
+OESEQ|Sequence Number|Num|x|Identifier|Req|NV
+OESTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|NV
+OESTNRC|Normal Range for Character Results|Char|x|Variable Qualifier|Perm|NV
+OESTNRHI|Normal Range Upper Limit-Standard Units|Num|x|Variable Qualifier|Perm|NV
+OESTNRLO|Normal Range Lower Limit-Standard Units|Num|x|Variable Qualifier|Perm|NV
+OESTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|NV
+OESTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|NV
+OESTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Exp|NV
+OETEST|Name of Ophthalmic Test or Exam|Char|(OETEST)|Synonym Qualifier|Req|NV
+OETESTCD|Short Name of Ophthalmic Test or Exam|Char|(OETESTCD)|Topic|Req|NV
+OETPT|Planned Time Point Name|Char|x|Timing|Perm|NV
+OETPTNUM|Planned Time Point Number|Num|x|Timing|Perm|NV
+OETPTREF|Time Point Reference|Char|x|Timing|Perm|NV
+OETSTDTL|Ophthalmic Test or Exam Detail|Char|*|Variable Qualifier|Perm|NV
+OEXFN|External File Path|Char|x|Record Qualifier|Perm|NV
+OIPARM|Non-host Organism ID Element Name|Char|*|Synonym Qualifier|Req|x
+OIPARMCD|Non-host Organism ID Element Short Name|Char|*|Topic|Req|x
+OISEQ|Sequence Number|Num|x|Identifier|Req|x
+OIVAL|Non-host Organism ID Element Value|Char|*|Result Qualifier|Req|x
+PARAM|Parameter|Char|x|x|Req|ADAM
+PARAMCD|Parameter Code |Char|x|x|Req|ADAM
+PARAMN|Parameter (N) |Num|x|x|Perm|ADAM
+PARAMTYP|Parameter Type |Char|(PARAMTYP)|x|Perm|ADAM
+PARCAT1|Parameter Category 1 |Char|x|x|Perm|ADAM
+PARCAT1N|Parameter Category 1 (N) |Num|x|x|Perm|ADAM
+PARCAT2|Parameter Category 2 |Char|x|x|Perm|ADAM
+PARCAT2N|Parameter Category 2 (N) |Num|x|x|Perm|ADAM
+PARCAT3|Parameter Category 3|Char|x|x|Perm|ADAM
+PARCAT3N|Parameter Category 3 (N)|Num|x|x|Perm|ADAM
+PARCAT4|Parameter Category 4|Char|x|x|Perm|ADAM
+PARCAT4N|Parameter Category 4 (N)|Num|x|x|Perm|ADAM
+PCCAT|Test Category|Char|*|Grouping Qualifier|Perm|PP
+PCDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|PP
+PCDTC|Date/Time of Specimen Collection|Char|ISO 8601|Timing|Exp|PP
+PCDY|Actual Study Day of Specimen Collection|Num|x|Timing|Perm|PP
+PCELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|PP
+PCENDTC|End Date/Time of Specimen Collection|Char|ISO 8601|Timing|Perm|PP
+PCENDY|Study Day of End of Observation|Num|x|Timing|Perm|PP
+PCEVLINT|Evaluation Interval|Char|ISO 8601|Timing|Perm|PP
+PCFAST|Fasting Status|Char|(NY)|Record Qualifier|Perm|PP
+PCGRPID|Group ID|Char|x|Identifier|Perm|PP
+PCHG|Percent Change from Baseline |Num|x|x|Perm|ADAM
+PCHGCA1N|Percent Chg from  Baseline Category 1  (N) |Num|x|x|Perm|ADAM
+PCHGCA2N|Percent Chg from  Baseline Category 2  (N) |Num|x|x|Perm|ADAM
+PCHGCA3N|Percent Chg from  Baseline Category 3  (N)|Num|x|x|Perm|ADAM
+PCHGCA4N|Percent Chg from Baseline Category 4 (N)|Num|x|x|Perm|ADAM
+PCHGCAT1|Percent Chg from  Baseline Category 1 |Char|x|x|Perm|ADAM
+PCHGCAT2|Percent Chg from  Baseline Category 2 |Char|x|x|Perm|ADAM
+PCHGCAT3|Percent Chg from  Baseline Category 3|Char|x|x|Perm|ADAM
+PCHGCAT4|Percent Chg from Baseline Category 4|Char|x|x|Perm|ADAM
+PCLLOQ|Lower Limit of Quantitation|Num|x|Variable Qualifier|Exp|PP
+PCMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|PP
+PCNAM|Vendor Name|Char|x|Record Qualifier|Exp|PP
+PCORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|PP
+PCORRESU|Original Units|Char|(PKUNIT)|Variable Qualifier|Exp|PP
+PCREASND|Reason Test Not Done|Char|x|Record Qualifier|Perm|PP
+PCREFID|Reference ID|Char|x|Identifier|Perm|PP
+PCRFTDTC|Date/Time of Reference Point|Char|ISO 8601|Timing|Perm|PP
+PCSCAT|Test Subcategory|Char|*|Grouping Qualifier|Perm|PP
+PCSEQ|Sequence Number|Num|x|Identifier|Req|PP
+PCSPCCND|Specimen Condition|Char|(SPECCOND)|Record Qualifier|Perm|PP
+PCSPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Exp|PP
+PCSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|PP
+PCSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|PP
+PCSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|PP
+PCSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|PP
+PCSTRESU|Standard Units|Char|(PKUNIT)|Variable Qualifier|Exp|PP
+PCTEST|Pharmacokinetic Test Name|Char|x|Synonym Qualifier|Req|PP
+PCTESTCD|Pharmacokinetic Test Short Name|Char|x|Topic|Req|PP
+PCTPT|Planned Time Point Name|Char|x|Timing|Perm|PP
+PCTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|PP
+PCTPTREF|Time Point Reference|Char|x|Timing|Perm|PP
+PCULOQ|Upper Limit of Quantitation|Num|x|Variable Qualifier|Perm|PP
+PEBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|RE
+PEBODSYS|Body System or Organ Class|Char|x|Record Qualifier|Perm|RE
+PECAT|Category for Examination|Char|*|Grouping Qualifier|Perm|RE
+PEDTC|Date/Time of Examination|Char|ISO 8601|Timing|Exp|RE
+PEDY|Study Day of Examination|Num|x|Timing|Perm|RE
+PEEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|RE
+PEGRPID|Group ID|Char|x|Identifier|Perm|RE
+PELAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|RE
+PELOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|RE
+PELOC|Location of Physical Exam Finding|Char|(LOC)|Record Qualifier|Perm|RE
+PEMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|RE
+PEMODIFY|Modified Reported Term|Char|x|Synonym Qualifier|Perm|RE
+PEORRES|Verbatim Examination Finding|Char|x|Result Qualifier|Exp|RE
+PEORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|RE
+PEREASND|Reason Not Examined|Char|x|Record Qualifier|Perm|RE
+PESCAT|Subcategory for Examination|Char|*|Grouping Qualifier|Perm|RE
+PESEQ|Sequence Number|Num|x|Identifier|Req|RE
+PESPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|RE
+PESTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|RE
+PESTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|RE
+PETEST|Body System Examined|Char|*|Synonym Qualifier|Req|RE
+PETESTCD|Body System Examined Short Name|Char|*|Topic|Req|RE
+PHEDT|Phase End Date |Num|x|x|Perm|ADAM
+PHEDTF|Phase End Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+PHEDTM|Phase End Datetime |Num|x|x|Perm|ADAM
+PHETM|Phase End Time |Num|x|x|Perm|ADAM
+PHETMF|Phase End Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+PHSDT|Phase Start Date |Num|x|x|Perm|ADAM
+PHSDTF|Phase Start Date Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+PHSDTM|Phase Start Datetime |Num|x|x|Perm|ADAM
+PHSTM|Phase Start Time |Num|x|x|Perm|ADAM
+PHSTMF|Phase Start Time Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+POOLID|Pool Identifier|Char|x|Identifier|Perm|OI
+PPCAT|Parameter Category|Char|*|Grouping Qualifier|Exp|QS
+PPDTC|Date/Time of Parameter Calculations|Char|ISO 8601|Timing|Perm|QS
+PPDY|Study Day of Parameter Calculations|Num|x|Timing|Perm|QS
+PPENINT|Planned End of Assessment Interval|Char|ISO 8601|Timing|Perm|QS
+PPGRPID|Group ID|Char|x|Identifier|Perm|QS
+PPORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|QS
+PPORRESU|Original Units|Char|(PKUNIT)(PKUWG)(PKUWKG)(PKUDMG)(PKUDUG)|Variable Qualifier|Exp|QS
+PPREASND|Reason Parameter Not Calculated|Char|x|Record Qualifier|Perm|QS
+PPRFTDTC|Date/Time of Reference Point|Char|ISO 8601|Timing|Exp|QS
+PPROTFL|Per-Protocol Population Flag |Char|Y,N|x|Cond|ADAM
+PPSCAT|Parameter Subcategory|Char|*|Grouping Qualifier|Perm|QS
+PPSEQ|Sequence Number|Num|x|Identifier|Req|QS
+PPSPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Exp|QS
+PPSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|QS
+PPSTINT|Planned Start of Assessment Interval|Char|ISO 8601|Timing|Perm|QS
+PPSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|QS
+PPSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|QS
+PPSTRESU|Standard Units|Char|(PKUNIT)(PKUWG)(PKUWKG)(PKUDMG)(PKUDUG)|Variable Qualifier|Exp|QS
+PPTEST|Parameter Name|Char|(PKPARM)|Synonym Qualifier|Req|QS
+PPTESTCD|Parameter Short Name|Char|(PKPARMCD)|Topic|Req|QS
+PRCAT|Category|Char|*|Grouping Qualifier|Perm|PR
+PRDECOD|Standardized Procedure Name|Char|*|Synonym Qualifier|Perm|PR
+PRDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|PR
+PRDOSE|Dose|Num|x|Record Qualifier|Perm|PR
+PRDOSFRM|Dose Form|Char|(FRM)|Variable Qualifier|Perm|PR
+PRDOSFRQ|Dosing Frequency per Interval|Char|(FREQ)|Variable Qualifier|Perm|PR
+PRDOSRGM|Intended Dose Regimen|Char|x|Variable Qualifier|Perm|PR
+PRDOSTXT|Dose Description|Char|x|Record Qualifier|Perm|PR
+PRDOSU|Dose Units|Char|(UNIT)|Variable Qualifier|Perm|PR
+PRDUR|Duration of Procedure|Char|ISO 8601|Timing|Perm|PR
+PRELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|PR
+PRENDTC|End Date/Time of Procedure|Char|ISO 8601|Timing|Perm|PR
+PRENDY|Study Day of End of Procedure|Num|x|Timing|Perm|PR
+PRENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|PR
+PRENTPT|End Reference Time Point|Char|x|Timing|Perm|PR
+PRGRPID|Group ID|Char|x|Identifier|Perm|PR
+PRINDC|Indication|Char|x|Record Qualifier|Perm|PR
+PRLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|PR
+PRLNKGRP|Link Group ID|Char|x|Identifier|Perm|PR
+PRLNKID|Link ID|Char|x|Identifier|Perm|PR
+PRLOC|Location of Procedure|Char|(LOC)|Record Qualifier|Perm|PR
+PROCCUR|Occurrence|Char|(NY)|Record Qualifier|Perm|PR
+PRPORTOT|Portion or Totality|Char|(PORTOT)|Variable Qualifier|Perm|PR
+PRPRESP|Pre-specified|Char|(NY)|Variable Qualifier|Perm|PR
+PRRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|PR
+PRROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|PR
+PRSCAT|Subcategory|Char|*|Grouping Qualifier|Perm|PR
+PRSEQ|Sequence Number|Num|x|Identifier|Req|PR
+PRSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|PR
+PRSTDTC|Start Date/Time of Procedure|Char|ISO 8601|Timing|Exp|PR
+PRSTDY|Study Day of Start of Procedure|Num|x|Timing|Perm|PR
+PRSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|PR
+PRSTTPT|Start Reference Time Point|Char|x|Timing|Perm|PR
+PRTPT|Planned Time Point Name|Char|x|Timing|Perm|PR
+PRTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|PR
+PRTPTREF|Time Point Reference|Char|x|Timing|Perm|PR
+PRTRT|Reported Name of Procedure|Char|x|Topic|Req|PR
+QEVAL|Evaluator|Char|*|Record Qualifier|Exp|SUPP--
+QLABEL|Qualifier Variable Label|Char|x|Synonym Qualifier|Req|SUPP--
+QNAM|Qualifier Variable Name|Char|*|Topic|Req|SUPP--
+QORIG|Origin|Char|x|Record Qualifier|Req|SUPP--
+QSBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|RS
+QSCAT|Category of Question|Char|(QSCAT)|Grouping Qualifier|Req|RS
+QSDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|RS
+QSDTC|Date/Time of Finding|Char|ISO 8601|Timing|Exp|RS
+QSDY|Study Day of Finding|Num|x|Timing|Perm|RS
+QSELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|RS
+QSEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|RS
+QSEVLINT|Evaluation Interval|Char|ISO 8601|Timing|Perm|RS
+QSGRPID|Group ID|Char|x|Identifier|Perm|RS
+QSLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|RS
+QSORRES|Finding in Original Units|Char|x|Result Qualifier|Exp|RS
+QSORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|RS
+QSREASND|Reason Not Performed|Char|x|Record Qualifier|Perm|RS
+QSRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|RS
+QSSCAT|Subcategory for Question|Char|*|Grouping Qualifier|Perm|RS
+QSSEQ|Sequence Number|Num|x|Identifier|Req|RS
+QSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|RS
+QSSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|RS
+QSSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|RS
+QSSTRESN|Numeric Finding in Standard Units|Num|x|Result Qualifier|Perm|RS
+QSSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|RS
+QSTEST|Question Name|Char|*|Synonym Qualifier|Req|RS
+QSTESTCD|Question Short Name|Char|*|Topic|Req|RS
+QSTPT|Planned Time Point Name|Char|x|Timing|Perm|RS
+QSTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|RS
+QSTPTREF|Time Point Reference|Char|x|Timing|Perm|RS
+QVAL|Data Value|Char|x|Result Qualifier|Req|SUPP--
+R2A1HI|Ratio to Analysis  Range 1 Upper  Limit |Num|x|x|Perm|ADAM
+R2A1LO|Ratio to Analysis  Range 1 Lower  Limit |Num|x|x|Perm|ADAM
+R2A2HI|Ratio to Analysis  Range 2 Upper  Limit |Num|x|x|Perm|ADAM
+R2A2LO|Ratio to Analysis  Range 2 Lower  Limit |Num|x|x|Perm|ADAM
+R2A3HI|Ratio to Analysis  Range 3 Upper  Limit|Num|x|x|Perm|ADAM
+R2A3LO|Ratio to Analysis  Range 3 Lower  Limit|Num|x|x|Perm|ADAM
+R2A4HI|Ratio to Analysis Range 4 Upper Limit|Num|x|x|Perm|ADAM
+R2A4LO|Ratio to Analysis Range 4 Lower Limit|Num|x|x|Perm|ADAM
+R2BASE|Ratio to Baseline |Num|x|x|Perm|ADAM
+RACE|Race|Char|(RACE)|Record Qualifier|Exp|DM
+RANDFL|Randomized Population Flag |Char|Y,N|x|Cond|ADAM
+RDOMAIN|Related Domain Abbreviation|Char|*|Record Qualifier|Perm|CO
+REBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|PC
+RECAT|Category for Respiratory Test|Char|x|Grouping Qualifier|Perm|PC
+REDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|PC
+REDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|PC
+REDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|PC
+REDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|PC
+REELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|PC
+REEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|PC
+REEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|PC
+REGRPID|Group ID|Char|x|Identifier|Perm|PC
+RELAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|PC
+RELID|Relationship Identifier|Char|x|Record Qualifier|Req|RELSUB
+RELMIDS|Temporal Relation to Milestone Instance|Char|x|Timing|Perm|ML
+RELNKGRP|Link Group|Char|x|Identifier|Perm|PC
+RELNKID|Link ID|Char|x|Identifier|Perm|PC
+RELOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|PC
+RELOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Perm|PC
+RELTYPE|Relationship Type|Char|(RELTYPE)|Record Qualifier|Exp|RELSUB
+REMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|PC
+REORREF|Reference Result in Original Units|Char|x|Variable Qualifier|Perm|PC
+REORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|PC
+REORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|PC
+REPOS|Position of Subject During Observation|Char|(POSITION)|Record Qualifier|Perm|PC
+REREASND|Reason Not Done|Char|x|Record Qualifier|Perm|PC
+REREFID|Reference ID|Char|x|Identifier|Perm|PC
+REREPNUM|Repetition Number|Num|x|Record Qualifier|Perm|PC
+RERFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|PC
+RESCAT|Subcategory for Respiratory Test|Char|x|Grouping Qualifier|Perm|PC
+RESEQ|Sequence Number|Num|x|Identifier|Req|PC
+RESPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|PC
+RESTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|PC
+RESTREFC|Character Reference Result|Char|x|Variable Qualifier|Perm|PC
+RESTREFN|Numeric Reference Result in Std Units|Num|x|Variable Qualifier|Perm|PC
+RESTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|PC
+RESTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|PC
+RESTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|PC
+RETEST|Name of Respiratory Test|Char|(RETEST)|Synonym Qualifier|Req|PC
+RETESTCD|Short Name of Respiratory Test|Char|(RETESTCD)|Topic|Req|PC
+RETPT|Planned Time Point Name|Char|x|Timing|Perm|PC
+RETPTNUM|Planned Time Point Number|Num|x|Timing|Perm|PC
+RETPTREF|Time Point Reference|Char|x|Timing|Perm|PC
+RFENDTC|Subject Reference End Date/Time|Char|ISO 8601|Record Qualifier|Exp|DM
+RFICDTC|Date/Time of Informed Consent|Char|ISO 8601|Record Qualifier|Exp|DM
+RFPENDTC|Date/Time of End of Participation|Char|ISO 8601|Record Qualifier|Exp|DM
+RFSTDTC|Subject Reference Start Date/Time|Char|ISO 8601|Record Qualifier|Exp|DM
+RFXENDTC|Date/Time of Last Study Treatment|Char|ISO 8601|Record Qualifier|Exp|DM
+RFXSTDTC|Date/Time of First Study Treatment|Char|ISO 8601|Record Qualifier|Exp|DM
+RPBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|OE
+RPCAT|Category for Reproductive Test|Char|x|Grouping Qualifier|Perm|OE
+RPDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|OE
+RPDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|OE
+RPDUR|Duration|Char|ISO 8601|Timing|Perm|OE
+RPDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|OE
+RPELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|OE
+RPGRPID|Group ID|Char|x|Identifier|Perm|OE
+RPLNKGRP|Link Group ID|Char|x|Identifier|Perm|OE
+RPLNKID|Link ID|Char|x|Identifier|Perm|OE
+RPLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|OE
+RPORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|OE
+RPORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|OE
+RPREASND|Reason Not Done|Char|x|Record Qualifier|Perm|OE
+RPREFID|Reference ID|Char|x|Identifier|Perm|OE
+RPRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|OE
+RPSCAT|Subcategory for Reproductive Test|Char|x|Grouping Qualifier|Perm|OE
+RPSEQ|Sequence Number|Num|x|Identifier|Req|OE
+RPSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|OE
+RPSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|OE
+RPSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|OE
+RPSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|OE
+RPSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|OE
+RPTEST|Name of Reproductive Test|Char|(RPTEST)|Synonym Qualifier|Req|OE
+RPTESTCD|Short Name of Reproductive Test|Char|(RPTESTCD)|Topic|Req|OE
+RPTPT|Planned Time Point Name|Char|x|Timing|Perm|OE
+RPTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|OE
+RPTPTREF|Time Point Reference|Char|x|Timing|Perm|OE
+RSACPTFL|Accepted Record Flag|Char|(NY)|Record Qualifier|Perm|SC
+RSBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|SC
+RSCAT|Category for Assessment|Char|(ONCRSCAT)(CCCAT)|Grouping Qualifier|Exp|SC
+RSDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|SC
+RSDTC|Date/Time of Assessment|Char|ISO 8601|Timing|Exp|SC
+RSDY|Study Day of Assessment|Num|x|Timing|Perm|SC
+RSELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|SC
+RSENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|SC
+RSENTPT|End Reference Time Point|Char|x|Timing|Perm|SC
+RSEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|SC
+RSEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|SC
+RSEVINTX|Evaluation Interval Text|Char|x|Timing|Perm|SC
+RSEVLINT|Evaluation Interval|Char|ISO 8601|Timing|Perm|SC
+RSGRPID|Group ID|Char|x|Identifier|Perm|SC
+RSLNKGRP|Link Group ID|Char|x|Identifier|Perm|SC
+RSLNKID|Link ID|Char|x|Identifier|Perm|SC
+RSLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|SC
+RSNAM|Vendor Name|Char|x|Record Qualifier|Perm|SC
+RSORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|SC
+RSORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|SC
+RSREASND|Reason Not Done|Char|x|Record Qualifier|Perm|SC
+RSREFID|Reference ID|Char|x|Identifier|Perm|SC
+RSRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|SC
+RSSCAT|Subcategory|Char|x|Grouping Qualifier|Perm|SC
+RSSEQ|Sequence Number|Num|x|Identifier|Req|SC
+RSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|SC
+RSSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|SC
+RSSTRESC|Character Result/Finding in Std Format|Char|(ONCRSR)|Result Qualifier|Exp|SC
+RSSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|SC
+RSSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|SC
+RSSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|SC
+RSSTTPT|Start Reference Time Point|Char|x|Timing|Perm|SC
+RSTEST|Assessment Name|Char|(ONCRTS)|Synonym Qualifier|Req|SC
+RSTESTCD|Assessment Short Name|Char|(ONCRTSCD)|Topic|Req|SC
+RSTPT|Planned Time Point Name|Char|x|Timing|Perm|SC
+RSTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|SC
+RSTPTREF|Time Point Reference|Char|x|Timing|Perm|SC
+RSUBJID|Related Subject or Pool Identifier|Char|x|Identifier|Req|OI
+SAFFL|Safety Population Flag |Char|Y,N|x|Cond|ADAM
+SCCAT|Category for Subject Characteristic|Char|*|Grouping Qualifier|Perm|SR
+SCDTC|Date/Time of Collection|Char|ISO 8601|Timing|Perm|SR
+SCDY|Study Day of Examination|Num|x|Timing|Perm|SR
+SCGRPID|Group ID|Char|x|Identifier|Perm|SR
+SCORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|SR
+SCORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|SR
+SCREASND|Reason Not Performed|Char|x|Record Qualifier|Perm|SR
+SCSCAT|Subcategory for Subject Characteristic|Char|*|Grouping Qualifier|Perm|SR
+SCSEQ|Sequence Number|Num|x|Identifier|Req|SR
+SCSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|SR
+SCSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|SR
+SCSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|SR
+SCSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|SR
+SCSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|SR
+SCTEST|Subject Characteristic|Char|(SCTEST)|Synonym Qualifier|Req|SR
+SCTESTCD|Subject Characteristic Short Name|Char|(SCTESTCD)|Topic|Req|SR
+SEENDTC|End Date/Time of Element|Char|ISO 8601|Timing|Exp|SE
+SESEQ|Sequence Number|Num|x|Identifier|Req|SE
+SESTDTC|Start Date/Time of Element|Char|ISO 8601|Timing|Req|SE
+SEUPDES|Description of Unplanned Element|Char|x|Synonym Qualifier|Perm|SE
+SEX|Sex|Char|(SEX)|Record Qualifier|Req|DM
+SHIFT1|Shift 1  |Char|x|x|Perm|ADAM
+SHIFT1N|Shift 1 (N) |Num|x|x|Perm|ADAM
+SHIFT2|Shift 2  |Char|x|x|Perm|ADAM
+SHIFT2N|Shift 2 (N) |Num|x|x|Perm|ADAM
+SHIFT3|Shift 3|Char|x|x|Perm|ADAM
+SHIFT3N|Shift 3 (N)|Num|x|x|Perm|ADAM
+SHIFT4|Shift 4|Char|x|x|Perm|ADAM
+SHIFT4N|Shift 4 (N)|Num|x|x|Perm|ADAM
+SITEID|Study Site Identifier|Char|*|Record Qualifier|Req|DM
+SMENDTC|End Date/Time of Milestone|Char|ISO 8601|Timing|Exp|SM
+SMENDY|Study Day of End of Milestone|Num|x|Timing|Exp|SM
+SMSEQ|Sequence Number|Num|x|Identifier|Req|SM
+SMSTDTC|Start Date/Time of Milestone|Char|ISO 8601|Timing|Exp|SM
+SMSTDY|Study Day of Start of Milestone|Num|x|Timing|Exp|SM
+SPDEVID|Sponsor Device Identifier|Char|x|Identifier|Perm|DD
+SRBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|TA
+SRCAT|Category for Test|Char|x|Grouping Qualifier|Perm|TA
+SRDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|TA
+SRDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|TA
+SREL|Subject Relationship|Char|(RELSUB)|Record Qualifier|Req|OI
+SRELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|TA
+SREVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|TA
+SRGRPID|Group ID|Char|x|Identifier|Perm|TA
+SRLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|TA
+SRLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Perm|TA
+SRLOC|Location Used for Measurement|Char|(LOC)|Record Qualifier|Perm|TA
+SRMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|TA
+SRNAM|Vendor Name|Char|x|Record Qualifier|Perm|TA
+SROBJ|Object of the Observation|Char|x|Record Qualifier|Req|TA
+SRORRES|Results or Findings in Original Units|Char|x|Result Qualifier|Exp|TA
+SRORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Exp|TA
+SRREASND|Reason Not Done|Char|x|Record Qualifier|Perm|TA
+SRREFID|Reference ID|Char|x|Identifier|Perm|TA
+SRRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|TA
+SRSCAT|Subcategory for Test|Char|x|Grouping Qualifier|Perm|TA
+SRSEQ|Sequence Number|Num|x|Identifier|Req|TA
+SRSPEC|Specimen Type|Char|(SPECTYPE)|Record Qualifier|Perm|TA
+SRSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|TA
+SRSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|TA
+SRSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|TA
+SRSTRESN|Numeric Results/Findings in Std. Units|Num|x|Result Qualifier|Exp|TA
+SRSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Exp|TA
+SRTEST|Skin Response Test or Examination Name|Char|(SRTEST)|Synonym Qualifier|Req|TA
+SRTESTCD|Skin Response Test or Exam Short Name|Char|(SRTESTCD)|Topic|Req|TA
+SRTPT|Planned Time Point Name|Char|x|Timing|Perm|TA
+SRTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|TA
+SRTPTREF|Time Point Reference|Char|x|Timing|Perm|TA
+SSCAT|Category for Assessment|Char|*|Grouping Qualifier|Perm|SS
+SSDTC|Date/Time of Assessment|Char|ISO 8601|Timing|Exp|SS
+SSDY|Study Day of Assessment|Num|x|Timing|Perm|SS
+SSEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|SS
+SSGRPID|Group ID|Char|x|Identifier|Perm|SS
+SSORRES|Result or Finding Original Result|Char|x|Result Qualifier|Exp|SS
+SSREASND|Reason Assessment Not Performed|Char|x|Record Qualifier|Perm|SS
+SSSCAT|Subcategory for Assessment|Char|*|Grouping Qualifier|Perm|SS
+SSSEQ|Sequence Number|Num|x|Identifier|Req|SS
+SSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|SS
+SSSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|SS
+SSSTRESC|Character Result/Finding in Std Format|Char|(SSTATRS)|Result Qualifier|Exp|SS
+SSTEST|Status Name|Char|(SSTEST)|Synonym Qualifier|Req|SS
+SSTESTCD|Status Short Name|Char|(SSTESTCD)|Topic|Req|SS
+STUDYID|Study Identifier|Char|x|Identifier|Req|CO
+SUBJID|Subject Identifier for the Study|Char|x|Topic|Req|DM
+SUCAT|Category for Substance Use|Char|*|Grouping Qualifier|Perm|SU
+SUCLAS|Substance Use Class|Char|*|Variable Qualifier|Perm|SU
+SUCLASCD|Substance Use Class Code|Char|*|Variable Qualifier|Perm|SU
+SUDECOD|Standardized Substance Name|Char|*|Synonym Qualifier|Perm|SU
+SUDOSE|Substance Use Consumption|Num|x|Record Qualifier|Perm|SU
+SUDOSFRM|Dose Form|Char|*|Variable Qualifier|Perm|SU
+SUDOSFRQ|Use Frequency Per Interval|Char|(FREQ)|Variable Qualifier|Perm|SU
+SUDOSTOT|Total Daily Consumption|Num|x|Record Qualifier|Perm|SU
+SUDOSTXT|Substance Use Consumption Text|Char|x|Record Qualifier|Perm|SU
+SUDOSU|Consumption Units|Char|(UNIT)|Variable Qualifier|Perm|SU
+SUDUR|Duration of Substance Use|Char|ISO 8601|Timing|Perm|SU
+SUENDTC|End Date/Time of Substance Use|Char|ISO 8601|Timing|Perm|SU
+SUENDY|Study Day of End of Substance Use|Num|x|Timing|Perm|SU
+SUENRF|End Relative to Reference Period|Char|(STENRF)|Timing|Perm|SU
+SUENRTPT|End Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|SU
+SUENTPT|End Reference Time Point|Char|x|Timing|Perm|SU
+SUGRPID|Group ID|Char|x|Identifier|Perm|SU
+SUMODIFY|Modified Substance Name|Char|x|Synonym Qualifier|Perm|SU
+SUOCCUR|SU Occurrence|Char|(NY)|Record Qualifier|Perm|SU
+SUPRESP|SU Pre-Specified|Char|(NY)|Variable Qualifier|Perm|SU
+SUREASND|Reason Substance Use Not Collected|Char|x|Record Qualifier|Perm|SU
+SUROUTE|Route of Administration|Char|(ROUTE)|Variable Qualifier|Perm|SU
+SUSCAT|Subcategory for Substance Use|Char|*|Grouping Qualifier|Perm|SU
+SUSEQ|Sequence Number|Num|x|Identifier|Req|SU
+SUSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|SU
+SUSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|SU
+SUSTDTC|Start Date/Time of Substance Use|Char|ISO 8601|Timing|Perm|SU
+SUSTDY|Study Day of Start of Substance Use|Num|x|Timing|Perm|SU
+SUSTRF|Start Relative to Reference Period|Char|(STENRF)|Timing|Perm|SU
+SUSTRTPT|Start Relative to Reference Time Point|Char|(STENRF)|Timing|Perm|SU
+SUSTTPT|Start Reference Time Point|Char|x|Timing|Perm|SU
+SUTRT|Reported Name of Substance|Char|x|Topic|Req|SU
+SVENDTC|End Date/Time of Visit|Char|ISO 8601|Timing|Exp|SV
+SVENDY|Study Day of End of Visit|Num|x|Timing|Perm|SV
+SVSTDTC|Start Date/Time of Visit|Char|ISO 8601|Timing|Exp|SV
+SVSTDY|Study Day of Start of Visit|Num|x|Timing|Perm|SV
+SVUPDES|Description of Unplanned Visit|Char|x|Synonym Qualifier|Perm|SV
+TABRANCH|Branch|Char|x|Rule|Exp|TD
+TAETORD|Planned Order of Element within Arm|Num|x|Timing|Perm|SE
+TATRANS|Transition Rule|Char|x|Rule|Exp|TD
+TDANCVAR|Anchor Variable Name|Char|x|Timing|Req|TM
+TDMAXPAI|Planned Assessment Interval Maximum|Char|ISO 8601|Timing|Req|TM
+TDMINPAI|Planned Assessment Interval Minimum|Char|ISO 8601|Timing|Req|TM
+TDNUMRPT|Maximum Number of Actual Assessments|Num|x|Record Qualifier|Req|TM
+TDORDER|Sequence of Planned Assessment Schedule|Num|x|Timing|Req|TM
+TDSTOFF|Offset from the Anchor|Char|ISO 8601|Timing|Req|TM
+TDTGTPAI|Planned Assessment Interval|Char|ISO 8601|Timing|Req|TM
+TEDUR|Planned Duration of Element|Char|ISO 8601|Timing|Perm|TE
+TEENRL|Rule for End of Element|Char|x|Rule|Perm|TE
+TESTRL|Rule for Start of Element|Char|x|Rule|Req|TE
+TIRL|Inclusion/Exclusion Criterion Rule|Char|x|Rule|Perm|TV
+TIVERS|Protocol Criteria Versions|Char|x|Record Qualifier|Perm|TV
+TMDEF|Disease Milestone Definition|Char|x|Rule|Req|TS
+TMRPT|Disease Milestone Repetition Indicator|Char|(NY)|Record Qualifier|Req|TS
+TRACPTFL|Accepted Record Flag|Char|(NY)|Record Qualifier|Perm|TU
+TRBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|TU
+TRDTC|Date/Time of Tumor/Lesion Measurement|Char|ISO 8601|Timing|Exp|TU
+TRDY|Study Day of Tumor/Lesion Measurement|Num|x|Timing|Perm|TU
+TREVAL|Evaluator|Char|(EVAL)|Record Qualifier|Exp|TU
+TREVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|TU
+TRGRPID|Group ID|Char|x|Identifier|Perm|TU
+TRLNKGRP|Link Group|Char|x|Identifier|Perm|TU
+TRLNKID|Link ID|Char|x|Identifier|Exp|TU
+TRLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|TU
+TRMETHOD|Method Used to Identify the Tumor/Lesion|Char|(METHOD)|Record Qualifier|Exp|TU
+TRNAM|Laboratory/Vendor Name|Char|x|Record Qualifier|Perm|TU
+TRORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|TU
+TRORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Exp|TU
+TRREASND|Reason Not Done|Char|x|Record Qualifier|Perm|TU
+TRREFID|Reference ID|Char|x|Identifier|Perm|TU
+TRSEQ|Sequence Number|Num|x|Identifier|Req|TU
+TRSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|TU
+TRSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|TU
+TRSTRESC|Character Result/Finding in Std Format|Char|(TRPROPRS)|Result Qualifier|Exp|TU
+TRSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|TU
+TRSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Exp|TU
+TRT01A|Actual Treatment for Period 01 |Char|x|x|Cond|ADAM
+TRT01AN|Actual Treatment for Period 01 (N) |Num|x|x|Perm|ADAM
+TRT01PN|Planned Treatment for Period 01 (N) |Num|x|x|Perm|ADAM
+TRT03A|Actual Treatment for Period 03 |Char|x|x|Cond|ADAM
+TRT03AN|Actual Treatment for Period 03 (N) |Num|x|x|Perm|ADAM
+TRT03PN|Planned Treatment for Period 03 (N) |Num|x|x|Perm|ADAM
+TRT04A|Actual Treatment for Period 04|Char|x|x|Cond|ADAM
+TRT04AN|Actual Treatment for Period 04 (N)|Num|x|x|Perm|ADAM
+TRT04PN|Planned Treatment for Period 04 (N)|Num|x|x|Perm|ADAM
+TRTEDT|Date of Last Exposure to Treatment |Num|x|x|Cond|ADAM
+TRTEST|Tumor/Lesion Assessment Test Name|Char|(TRTEST)|Synonym Qualifier|Req|TU
+TRTESTCD|Tumor/Lesion Assessment Short Name|Char|(TRTESTCD)|Topic|Req|TU
+TRTETM|Time of Last Exposure to Treatment |Num|x|x|Perm|ADAM
+TRTSDT|Date of First Exposure to Treatment |Num|x|x|Cond|ADAM
+TRTSDTF|Date of First Exposure Imput. Flag |Char|(DATEFL)|x|Cond|ADAM
+TRTSDTM|Datetime of First Exposure to Treatment |Num|x|x|Cond|ADAM
+TRTSTM|Time of First Exposure to Treatment |Num|x|x|Perm|ADAM
+TRTSTMF|Time of First Exposure Imput. Flag |Char|(TIMEFL)|x|Cond|ADAM
+TRTxxA|Actual Treatment for Period xx |Char|x|x|Cond|ADAM
+TRTxxAN|Actual Treatment for Period xx (N) |Num|x|x|Perm|ADAM
+TRTxxPN|Planned Treatment for Period xx (N) |Num|x|x|Perm|ADAM
+TSGRPID|Group ID|Char|x|Identifier|Perm|RELREC
+TSPARM|Trial Summary Parameter|Char|(TSPARM)|Synonym Qualifier|Req|RELREC
+TSPARMCD|Trial Summary Parameter Short Name|Char|(TSPARMCD)|Topic|Req|RELREC
+TSSEQ|Sequence Number|Num|x|Identifier|Req|RELREC
+TSVAL|Parameter Value|Char|*|Result Qualifier|Exp|RELREC
+TSVALCD|Parameter Value Code|Char|*|Result Qualifier|Exp|RELREC
+TSVALNF|Parameter Null Flavor|Char|ISO 21090 NullFlavor enumeration|Result Qualifier|Perm|RELREC
+TSVCDREF|Name of the Reference Terminology|Char|x|Result Qualifier|Exp|RELREC
+TSVCDVER|Version of the Reference Terminology|Char|x|Result Qualifier|Exp|RELREC
+TUACPTFL|Accepted Record Flag|Char|(NY)|Record Qualifier|Perm|TR
+TUBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|TR
+TUDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|TR
+TUDTC|Date/Time of Tumor/Lesion Identification|Char|ISO 8601|Timing|Exp|TR
+TUDY|Study Day of Tumor/Lesion Identification|Num|x|Timing|Perm|TR
+TUEVAL|Evaluator|Char|(EVAL)|Record Qualifier|Exp|TR
+TUEVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|TR
+TUGRPID|Group ID|Char|x|Identifier|Perm|TR
+TULAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|TR
+TULNKGRP|Link Group ID|Char|x|Identifier|Perm|TR
+TULNKID|Link ID|Char|x|Identifier|Exp|TR
+TULOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|TR
+TULOC|Location of the Tumor/Lesion|Char|(LOC)|Record Qualifier|Exp|TR
+TUMETHOD|Method of Identification|Char|(METHOD)|Record Qualifier|Exp|TR
+TUNAM|Laboratory/Vendor Name|Char|x|Record Qualifier|Perm|TR
+TUORRES|Tumor/Lesion ID Result|Char|x|Result Qualifier|Exp|TR
+TUPORTOT|Portion or Totality|Char|(PORTOT)|Variable Qualifier|Perm|TR
+TUREFID|Reference ID|Char|x|Identifier|Perm|TR
+TUSEQ|Sequence Number|Num|x|Identifier|Req|TR
+TUSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|TR
+TUSTRESC|Tumor/Lesion ID Result Std. Format|Char|(TUIDRS)|Result Qualifier|Exp|TR
+TUTEST|Tumor/Lesion ID Test Name|Char|(TUTEST)|Synonym Qualifier|Req|TR
+TUTESTCD|Tumor/Lesion ID Short Name|Char|(TUTESTCD)|Topic|Req|TR
+TVENRL|Visit End Rule|Char|x|Rule|Perm|TI
+TVSTRL|Visit Start Rule|Char|x|Rule|Req|TI
+URBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|PE
+URCAT|Category for Urinary Test|Char|*|Grouping Qualifier|Perm|PE
+URDIR|Directionality|Char|(DIR)|Variable Qualifier|Perm|PE
+URDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|PE
+URDTC|Date/Time of Collection|Char|ISO 8601|Timing|Exp|PE
+URDY|Study Day of Visit/Collection/Exam|Num|x|Timing|Perm|PE
+URELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|PE
+UREVAL|Evaluator|Char|(EVAL)|Record Qualifier|Perm|PE
+UREVALID|Evaluator Identifier|Char|(MEDEVAL)|Variable Qualifier|Perm|PE
+URGRPID|Group ID|Char|x|Identifier|Perm|PE
+URLAT|Laterality|Char|(LAT)|Variable Qualifier|Perm|PE
+URLNKGRP|Link Group ID|Char|x|Identifier|Perm|PE
+URLNKID|Link ID|Char|x|Identifier|Perm|PE
+URLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|PE
+URLOC|Location Used for the Measurement|Char|(LOC)|Record Qualifier|Perm|PE
+URMETHOD|Method of Test or Examination|Char|(METHOD)|Record Qualifier|Perm|PE
+URORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|PE
+URORRESU|Original Units|Char|(UNIT)|Variable Qualifier|Perm|PE
+URREASND|Reason Not Done|Char|x|Record Qualifier|Perm|PE
+URREFID|Reference ID|Char|x|Identifier|Perm|PE
+URRESCAT|Result Category|Char|x|Variable Qualifier|Perm|PE
+URRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|PE
+URSCAT|Subcategory for Urinary Test|Char|*|Grouping Qualifier|Perm|PE
+URSEQ|Sequence Number|Num|x|Identifier|Req|PE
+URSPCUFL|Specimen Usability for the Test|Char|(NY)|Record Qualifier|Perm|PE
+URSPEC|Specimen Material Type|Char|(SPECTYPE)|Record Qualifier|Perm|PE
+URSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|PE
+URSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|PE
+URSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|PE
+URSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Perm|PE
+URSTRESU|Standard Units|Char|(UNIT)|Variable Qualifier|Perm|PE
+URTEST|Name of Urinary Test|Char|(URNSTS)|Synonym Qualifier|Req|PE
+URTESTCD|Short Name of Urinary Test|Char|(URNSTSCD)|Topic|Req|PE
+URTPT|Planned Time Point Name|Char|x|Timing|Perm|PE
+URTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|PE
+URTPTREF|Time Point Reference|Char|x|Timing|Perm|PE
+URTSTDTL|Urinary Test Detail|Char|*|Variable Qualifier|Perm|PE
+USUBJID|Unique Subject Identifier|Char|x|Identifier|Req|CO
+VISIT|Visit Name|Char|x|Synonym Qualifier|Perm|SV
+VISITDY|Planned Study Day of Visit|Num|x|Timing|Perm|SV
+VISITNUM|Visit Number|Num|x|Topic|Req|SV
+VSBLFL|Baseline Flag|Char|(NY)|Record Qualifier|Perm|UR
+VSCAT|Category for Vital Signs|Char|*|Grouping Qualifier|Perm|UR
+VSDRVFL|Derived Flag|Char|(NY)|Record Qualifier|Perm|UR
+VSDTC|Date/Time of Measurements|Char|ISO 8601|Timing|Exp|UR
+VSDY|Study Day of Vital Signs|Num|x|Timing|Perm|UR
+VSELTM|Planned Elapsed Time from Time Point Ref|Char|ISO 8601|Timing|Perm|UR
+VSGRPID|Group ID|Char|x|Identifier|Perm|UR
+VSLAT|Laterality|Char|(LAT)|Result Qualifier|Perm|UR
+VSLOBXFL|Last Observation Before Exposure Flag|Char|(NY)|Record Qualifier|Exp|UR
+VSLOC|Location of Vital Signs Measurement|Char|(LOC)|Record Qualifier|Perm|UR
+VSORRES|Result or Finding in Original Units|Char|x|Result Qualifier|Exp|UR
+VSORRESU|Original Units|Char|(VSRESU)|Variable Qualifier|Exp|UR
+VSPOS|Vital Signs Position of Subject|Char|(POSITION)|Record Qualifier|Perm|UR
+VSREASND|Reason Not Performed|Char|x|Record Qualifier|Perm|UR
+VSRFTDTC|Date/Time of Reference Time Point|Char|ISO 8601|Timing|Perm|UR
+VSSCAT|Subcategory for Vital Signs|Char|*|Grouping Qualifier|Perm|UR
+VSSEQ|Sequence Number|Num|x|Identifier|Req|UR
+VSSPID|Sponsor-Defined Identifier|Char|x|Identifier|Perm|UR
+VSSTAT|Completion Status|Char|(ND)|Record Qualifier|Perm|UR
+VSSTRESC|Character Result/Finding in Std Format|Char|x|Result Qualifier|Exp|UR
+VSSTRESN|Numeric Result/Finding in Standard Units|Num|x|Result Qualifier|Exp|UR
+VSSTRESU|Standard Units|Char|(VSRESU)|Variable Qualifier|Exp|UR
+VSTEST|Vital Signs Test Name|Char|(VSTEST)|Synonym Qualifier|Req|UR
+VSTESTCD|Vital Signs Test Short Name|Char|(VSTESTCD)|Topic|Req|UR
+VSTPT|Planned Time Point Name|Char|x|Timing|Perm|UR
+VSTPTNUM|Planned Time Point Number|Num|x|Timing|Perm|UR
+VSTPTREF|Time Point Reference|Char|x|Timing|Perm|UR

@@ -1,0 +1,101 @@
+
+CDISC {data-orientation=rows}
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Clinical Trial Scope
+- PMW (project management workbook)
+- protocol
+- SAP (statistical analysis plan), TFL-shell (table, listing, figures)
+- SAR (statistical analysis report), TFL
+- CSR (clinical study report)
+<p></p>
+
+### Procedure with Validation QC
+- Source Data
+- Standardisation
+- Analysis
+- TLF
+<p></p>
+
+### Study types and designs
+- superiority trials
+- non-inferiority trails
+- equivalence trails
+- parallel design and cross-over design
+<p></p>
+
+Row {data-height=600}
+-----------------------------------------------------------------------
+
+### SDTM at a Glance
+
+```{r}
+keys <- c("Data Class", "Variable Roles", "Core Variables")
+
+grp01 <- data.frame(id = 1:3,
+                   label = keys,
+                   title = c("define tables", "define variables", "some "),
+                   group = keys,
+                   shape = c("database", "circle", "star"))
+grp11 <- data.frame(id = 11:16,
+                   label = c("Inteventions",  "Events", "Findings", "Domain", "Trial Design", "Relationship"),
+                   title = NA,
+                   group = keys[1],
+                   shape = "ellipse")
+grp12 <- data.frame(id = 21:24,
+                   label = c("Identifier", "Topic", "Timing", "Qualifier"),
+                   title = NA,
+                   group = keys[2],
+                   shape = "ellipse")
+grp13 <- data.frame(id = 31:33,
+                   label = c("Required", "Expected", "Permissible"),
+                   title = NA,
+                   group = keys[3], 
+                   shape = "text")
+grp21 <- data.frame(id = 101:114,
+                   label = c("CM", "EX", "AE", "DS", "VS", "PE", "DM", "CO", "SV", "TA", "TI", "TV", "RELREC", "SUPP--"),
+                   title = c("CM Conmeds", "EX Exposure", "AE Adverse Events", "DS Disposition Events", "VS Vital Signs", "PE Pysical Exam", "DM Demographics", "CO Comments", "SV Subject Visits", "TA Trial Arms", "TI Trial Inclusion", "TV Trial Visits", "RELREC Related Records", "SUPP-- Supplemental Qualifiers"),
+                   group = "- tables",
+                   shape = "box")
+grp22 <- data.frame(id = 201:212,
+                    label = c("STUDYID", "USUBJID", "--SEQ", "LBTEST", "AETERM", "CMTRT", "LBDTC", "AESTDTC", "EXENDTC", "LBORRES", "AESEV", "CMDOSE"),
+                    title = c("STUDYID Study ID", "USUBJID Subject ID", "--SEQ Sequence ID", "LBTEST Lab Test Name", "AETERM Adverse Event Term", "CMTRT Reported Drug Name", "LBDTC Lab Assessment Date", "AESTDTC Adverse Event Start Date", "EXENDTC Exposure End Date", "LBORRES Lab Test Result", "AESEV Adverse Event Severity", "CMDOSE Conmed Dose"),
+                    group = "- variables",
+                    shape = "box")
+
+nodes <- rbind(grp01, grp11, grp12, grp13, grp21, grp22)
+edges <- data.frame(from = c(rep(1, 6), rep(2, 4), rep(3, 3),
+                             rep(11,2), rep(12,2), rep(13,2), rep(14,3), rep(15,3), rep(16,2),
+                             rep(21,3), rep(22,3), rep(23,3), rep(24,3)),
+                    to   = c(11:16, 21:24, 31:33,
+                             101:114,
+                             201:212))
+
+visNetwork(nodes, edges, width = "100%", height = "600px") %>%
+  visOptions(highlightNearest = list(enabled = T, hover = T), 
+             selectedBy = "group")  %>%
+  visLayout(randomSeed = 69)
+```
+
+
+### ADaM at a Glance
+
+```{r}
+
+nodes <- data.frame(id = c(1, 11:14, 21:27),
+                    label = c("ADaM", "ADSL", "BDS", "OCCDS", "OTHER",
+                              "ADSL", "ADLB", "ADEFF", "ADTTE", "ADAE", "ADCM", "ADMV"),
+                    title = c("ADaM Datasets", "Subject-Level Analysis Dataset", "Basic Data Structure", "Occurence Data", "ADam other dataset", "ADSL", "ADLB", "ADEFF", "ADTTE", "ADAE", "ADCM", "ADMV"),
+                    group = c("ADaM", rep("ADaM Categories", 4), rep("ADaM Datasets", 7)),
+                    shape = c("database", rep("circle",4), rep("box", 7)))
+
+edges <- data.frame(from = c(rep(1,4), 11, 12, 12, 12, 13, 13, 14),
+                    to   = c(11:14, 21:27))
+
+visNetwork(nodes, edges, width = "100%", height = "600px") %>%
+  visOptions(highlightNearest = list(enabled = T, hover = T), 
+             selectedBy = "group")
+```

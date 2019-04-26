@@ -30,7 +30,7 @@ getCode <- function(the_table, lang = "SQL"){
   if(lang == "SQL") return(
     the_table %>% 
       mutate(Sql = paste0('\t/*', str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
+                          str_pad(`Variable Name`, 14, "right"), 
                           getDataType(Type), 
                           ' "', `Variable Label`, '"')) %>%
       pull(Sql) %>% 
@@ -41,12 +41,12 @@ getCode <- function(the_table, lang = "SQL"){
   if(lang == "SAS") return(
     the_table %>% 
       mutate(Sas = paste0('\t/*',str_pad(Core, 4) ,'*/  ', 
-                          str_pad(`Variable Name`, 15, "right"), 
+                          str_pad(`Variable Name`, 14, "right"), 
                           getDataType(Type, "SAS"),
                           '  label="', `Variable Label`, '"')) %>%
       pull(Sas) %>% 
       paste(collapse = "\n") %>% 
-      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ ""; stop;\nrun;')
+      paste('data shell;\n\tattrib\n', . ,'\n\t;\n\tretain _character_ "" _numeric_ . ; stop;\nrun;')
   )
 }
 
@@ -135,5 +135,45 @@ playit_not_run <- function(){
   
   "AE Adverse Events" %>% word(2:5) %>% na.omit() %>% paste(collapse = "+")
 
+}
+
+
+# UTILITY: SDTM and ADAM vars ---------------------------------------------
+
+
+varlist <- function(){
+  library(tidyverse)
+  options(stringsAsFactors = F)
+  sdtm_domain <- readRDS("sdtm_domain.rds")
+  
+  base <- sdtm_domain[[1]]
+  sdtmvars <- data.frame()
+  for(i in 2:61){
+    cur <- sdtm_domain[[i]]
+    cur$domain <- base$Dataset[i-1]
+    sdtmvars <- rbind(sdtmvars, cur)
+  }
+  
+  # merge with ADAM vars
+  adam <- read.csv2("adamvar.csv")
+  adamvars <- data.frame(col1 = adam[,1], col2 = adam[,2], col3 = adam[,3], col4 = adam[,4],
+                         col5 = "", col6 = "", col7=adam[,5], col8 = "ADAM")
+  colnames(adamvars) <- colnames(sdtmvars)
+  allvars <- rbind(sdtmvars, adamvars)
+  
+  # distinct and sort
+  allvars %>% 
+    distinct(`Variable Name`, .keep_all = TRUE) %>%
+    arrange(`Variable Name`)  -> allvars
+  
+  for (i in 1:nrow(allvars)) {
+    for (j in 1:ncol(allvars)){
+      if( is.na(allvars[i,j]) || allvars[i,j] == "") allvars[i,j] <- "x"
+      #    stdmvars[i,j] <- stdmvars[i,j] %>% str_replace_all(",", ".")
+    }
+  }
+
+  
+  write_delim(allvars[,-6], "vars", delim = "|")  
 }
 

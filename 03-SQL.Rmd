@@ -1,0 +1,73 @@
+PROC SQL {data-orientation=columns}
+=======================================================================
+
+Column
+-------------------------------------
+
+### PROC SQL Advanced Notes
+
+Selective learning session from internal video course by Aku (2019-01-14-PROC_SQL)
+
+March 2019
+
+_Code below does not include `PROC SQL; QUIT;` markup_
+
+Column
+-------------------------------------
+
+### Number of results unknown
+
+<p><pre>
+select var1, var2 into :mvar1-, :mvar2- from dataset;
+</pre></p>
+
+### Separated by and auto-trim
+
+<p><pre>
+select var1, var2 into :mvar1 separated by "sep" NOTRIM from dataset;
+</pre></p>
+
+When `separated by` is used, trimming will automatically apply. Use `notrim` to opt-out.
+
+<p><pre>
+select var1, var2 into :mvar1 trimmed, :mvar2 from dataset;
+</pre></p>
+
+Using `trimmed` to apply in absence of `separated by`
+
+### Ordering
+
+<p><pre>
+select var, ordervar into :mvar-, tempvar from dataset order by ordervar
+</pre></p>
+
+ordervar must be in `select`, but do not need any length if not used later;
+
+### colunm names in lib.work
+
+<p><pre>
+select * from dictionary.columns
+</pre></p>
+
+
+Column 
+-------------------------------------
+
+### Practical Application
+
+<p><pre>
+proc sql noprint;
+   select distinct %str(paramct) into: pars separated by "|" from dataset;
+quit;
+data somedataset;
+   set something;
+   length PARAMCT $200;
+   do i = 1 to countw("&pars.","|");
+      PARAMCT=scan("&pars",i,"|");
+      output;
+   end;
+   drop i;
+run;
+</pre></p>
+
+`%str` quotes the result as SAS string

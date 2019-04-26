@@ -1,0 +1,103 @@
+SDTM Tools
+=======================================================================
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+Settings
+
+```{r}
+tables <- readRDS("sdtm_domain.rds")
+catlog <- tables[[1]]
+
+radioGroupButtons(inputId = "lang", label = "", choices = c("SQL", "SAS"), status = "primary")
+
+awesomeCheckboxGroup(inputId = "sdtm_core", label = "Core Variables", inline = F,
+                     choices = c("Req", "Perm", "Exp"), selected = c("Req", "Perm", "Exp"))
+
+tags$hr()
+
+renderUI(tags$a(input$sdtm_domain %>% word(1) %>% paste("Veiw",., "on CDISC"), 
+                href =  paste0("https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3#",
+                               input$sdtm_domain %>% word(2:5) %>% na.omit() %>% paste(collapse = "+") %>% str_replace_all("/","+")),
+                class = "btn btn-primary", 
+                target="_blank"))
+
+```
+
+
+<hr />
+
+
+Based on [SDTMIG v3.3](https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-3)
+
+Column
+-----------------------------------------------------------------------
+
+### Domains
+
+```{r}
+pickerInput("sdtm_domain", "",
+            choices = catlog %>% 
+              select(Class, Name) %>% mutate(id = 1:nrow(catlog)) %>% 
+              spread(key = "Class", value = "Name") %>% select(-id) %>%
+              as.list() %>% lapply(function(x) x[!is.na(x)]),
+            options = list(`live-search` = TRUE))
+
+# dropdownButton(
+#   renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+#                     options = list(pageLength = 999, dom = 'ft')),
+#   circle = F, status = "primary", label = "View Domain Details", width = "100%"
+# )
+
+
+textAreaInput("code", "", value = "here to show code", rows = 15,  resize = "both") %>% 
+  tagAppendAttributes(style = 'width: 100%; font-family: "Courier New";') 
+  # serif font: "Lucida Console" 
+
+textAreaInput("varline", "Variable Order:", value = "here to show code", rows = 3, resize = "both") %>% 
+  tagAppendAttributes(style = 'width: 100%; font-family: "Courier New";')
+
+observeEvent({input$lang; input$sdtm_core; input$sdtm_domain}, {
+  
+  table <-tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] 
+  info <- table %>% count(Core) %>% mutate(text = paste(Core, n)) %>% pull(text) %>% paste(collapse = " | ")
+  
+  updateTextAreaInput(session, "code",
+                      label = paste("Total", nrow(table), "variables |", info),
+                      value = table %>% filter(Core %in% input$sdtm_core) %>% getCode(input$lang))
+  updateTextAreaInput(session, "varline",
+                      value = table %>% filter(Core %in% input$sdtm_core) %>% pull(1) %>% paste(collapse = " ") %>% paste0(";"))
+})
+
+
+```
+
+<center>= = = end = = =</center>
+
+
+```{r, eval = F}
+# the DROPDOWN and DataTABLE are hidden
+dropdownButton(
+
+  radioGroupButtons(inputId = "lang", label = "", 
+                    choices = c("SQL", "SAS"), status = "primary"),
+  
+  awesomeCheckboxGroup(inputId = "sdtm_core", label = "",
+                       choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"),
+                       inline =  TRUE),
+  tags$hr(),
+
+  renderPrint(
+      tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
+        filter(Core %in% input$sdtm_core) %>%
+        getCode(input$lang) %>%
+        cat()
+  ),
+  
+  circle = F, status = "primary", label = "Get Code", width = "699px"
+)
+
+renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+                    options = list(pageLength = 999, dom = 'ft'))
+```
