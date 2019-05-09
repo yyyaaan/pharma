@@ -44,14 +44,15 @@ pickerInput("sdtm_domain", "",
               as.list() %>% lapply(function(x) x[!is.na(x)]),
             options = list(`live-search` = TRUE))
 
-# dropdownButton(
-#   renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
-#                     options = list(pageLength = 999, dom = 'ft')),
-#   circle = F, status = "primary", label = "View Domain Details", width = "100%"
-# )
+dropdownButton(
+  renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
+                    options = list(pageLength = 6, dom = 'ftp')),
+  circle = F, status = "primary", label = "Click for Detailed Domain Documentation", width = "90%"
+)
 
+tags$br()
 
-textAreaInput("code", "", value = "here to show code", rows = 15,  resize = "both") %>% 
+textAreaInput("code", "", value = "here will show code", rows = 20,  resize = "both") %>% 
   tagAppendAttributes(style = 'width: 100%; font-family: "Courier New";') 
   # serif font: "Lucida Console" 
 
@@ -74,30 +75,3 @@ observeEvent({input$lang; input$sdtm_core; input$sdtm_domain}, {
 ```
 
 <center>= = = end = = =</center>
-
-
-```{r, eval = F}
-# the DROPDOWN and DataTABLE are hidden
-dropdownButton(
-
-  radioGroupButtons(inputId = "lang", label = "", 
-                    choices = c("SQL", "SAS"), status = "primary"),
-  
-  awesomeCheckboxGroup(inputId = "sdtm_core", label = "",
-                       choices = c("Req", "Perm", "Exp"), selected = c("Req", "Exp"),
-                       inline =  TRUE),
-  tags$hr(),
-
-  renderPrint(
-      tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]] %>% 
-        filter(Core %in% input$sdtm_core) %>%
-        getCode(input$lang) %>%
-        cat()
-  ),
-  
-  circle = F, status = "primary", label = "Get Code", width = "699px"
-)
-
-renderDT(tables[[catlog$index[which(catlog$Name == input$sdtm_domain)]]],
-                    options = list(pageLength = 999, dom = 'ft'))
-```

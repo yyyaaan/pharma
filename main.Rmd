@@ -37,3 +37,6 @@ source("Rmd.R")
 
 ```{r child = "03-SQL.Rmd"}
 ```
+
+```{r child = "04-TRICKS.Rmd"}
+```

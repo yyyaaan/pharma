@@ -1,0 +1,83 @@
+GreatTricks {data-orientation=columns}
+=======================================================================
+
+Column
+-------------------------------------
+
+### Array Array and Array!
+
+<p><pre>
+data example;
+   array charvars _character_;
+   array numvars  _numeric_;
+   array myvars[3] var1 var2 var3;
+run;
+</pre></p>
+
+Declaration of array dim is not necessary, at least I prefer not.
+
+The major limitation of array is that all vars must in same format (either all characters or all numeric). PROC SQL works better if array is supposed for mixed types.
+
+### Do something with Array;
+
+<p><pre>
+data example;
+   ... # array declaration;
+   do i = 1 to dim(array_name);
+      array1[i] = array1[i] + array2[i];
+   end;
+   do over array_name;
+      array_name = fun(array_name);
+   end;
+run;
+</pre></p>
+
+Note that `do over` is a great tool when only single array is modified, there is NO need to mention the dim and index - SAS does it!
+
+`do over` does not work with explicit array with dim specified.
+
+
+
+Column
+-------------------------------------
+
+### Proc Format as a life changer 
+
+My tricks to greatly improve programming efficiency and elegance by replacing IF-THEN-ELSE with PROC FORMATS
+
+[Main Ref from SAS Resources ](https://support.sas.com/resources/papers/proceedings/proceedings/sugi27/p056-27.pdf)
+
+### Tips
+
+<p><pre>proc format; value ...; run;</pre></p>
+
+If combined with `put()`, the output must be character;
+
+<p><pre>proc format; invalue ...; run;</pre></p>
+
+With `invalue`, it is possible to use `input()` and the numeric output is achieved!
+
+The symbols of ">" and "<" explicitly specifies UNEQUAL condition (see example below)
+
+`low`, `high` can be used as keywords for infinite value.
+
+### Practical Example In Action
+
+<p><pre>
+proc format;
+	value CAT 
+		low -< 165 = 3
+		165 -  440 = 2
+		440 <- high= 1;
+	invalue inCAT 
+		low -< 165 = 3
+		165 -  440 = 2
+		440 <- high= 1;
+run;
+data test;
+	tester = 440;
+	format = put(tester, cat.);     #char
+	infor  = input(tester, incat.); #num
+run;
+</pre></p>
+
