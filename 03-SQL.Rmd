@@ -71,3 +71,11 @@ run;
 </pre></p>
 
 `%str` quotes the result as SAS string
+
+### Amazing Duplicates Finder
+
+<p><pre>
+create table dups as
+select * from no_val_dup group by usubjid, paramcd, adt
+having count(*) >= 2;
+</pre></p>
