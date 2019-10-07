@@ -1,4 +1,4 @@
-GreatTricks {data-orientation=columns}
+Array&Format {data-orientation=columns}
 =======================================================================
 
 Column
@@ -18,7 +18,7 @@ Declaration of array dim is not necessary, at least I prefer not.
 
 The major limitation of array is that all vars must in same format (either all characters or all numeric). PROC SQL works better if array is supposed for mixed types.
 
-### Do something with Array;
+### Do something with Array
 
 <p><pre>
 data example;
@@ -81,3 +81,22 @@ data test;
 run;
 </pre></p>
 
+
+Column
+-------------------------------------
+
+### Get Varname
+
+`vnamex` gets variable name to character, especially useful from an array
+
+<p><pre>
+symget(vnamex(array[i]))
+</pre></p>
+
+### Put "as it displays"
+
+`vformat` returns the format of a varialbe. Below will put the variable into character based on its format. 
+
+<p><pre>
+putc(var, vformat(var));
+</pre></p>

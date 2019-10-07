@@ -6,6 +6,8 @@ Column
 
 ### R Links
 
+- [Dash from Plotly](https://dash-gallery.plotly.host/Portal/)
+
 - [R-Markdown Dashboard](https://rmarkdown.rstudio.com/lesson-12.html) | [R-Markdown Webstie](https://rmarkdown.rstudio.com/rmarkdown_websites.html)
 
 - [R-Markdown Styling](https://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style) | [Bootstrap Themes](https://bootswatch.com/)
@@ -34,12 +36,25 @@ datatable %>%
 
 10APR Functions and PROC IMPL (continued)
 
-17APR [Advanced topics of arrary, vname and do over](#section-greattricks)
+17APR [Advanced topics of arrary, vname and do over](#section-arrayformat)
 
 24APR Oncology Pharma 
 
-02MAY [Proc Formats as a life-changer](#section-greattricks)
+02MAY [Proc Formats as a life-changer](#section-arrayformat)
 
+09MAY Oncology continued
+
+00JUL SAS Project organization and SVN exploration
+
+12AUG [Optimizing SAS EG's speed](#https://support.sas.com/resources/papers/proceedings14/SAS331-2014.pdf)
+
+14AUG [Proc Corresp](https://support.sas.com/documentation/cdl/en/statug/63347/HTML/default/viewer.htm#statug_corresp_sect005.htm)
+
+### Characters
+
+潘䶮(4dae)
+
+潘(e863)
 
 Column
 -----------------------------------------------------------------------
@@ -52,43 +67,22 @@ Column
 
 - [PROC tabulate](http://support.sas.com/resources/papers/proceedings09/039-2009.pdf)
 
-### Global Vars
-
-<p><pre>
-%let varname = value; *define;
-do &varname;  *use;
-
-proc sql;
- select name into :VARNAME separated by ' '
-  from dictionary.columns
-  where memname= "DATASET";
-quit;
-
-</pre></p>
-
-
-
-### PROC Transpose wide->long
-
-<p><pre>
-PROC TRANSPOSE data=input 
-               out=output (drop=_NAME_ _label_);
-	by [the combination to identify];
-	id [move to column];
-	var [column to be transposed to row];
-RUN;
-</pre></p>
-
 ### PROC output styles
 
 <p><pre>
 PROC MEANS noprint data=input;
-	var bmi;
-	by cohort;
+	by cohort; var bmi;
 	output out = output (drop = _freq_ _type_);
 PROC FREQ data=input
   table var1 * var2 / out = output;
 RUN;
+</pre></p>
+
+ODS output can be accessed by enable trace
+
+<p><pre>
+ods trace on; 
+...; ods output a = name;
 </pre></p>
 
 Column

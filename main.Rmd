@@ -23,20 +23,24 @@ library(shiny); library(flexdashboard); library(shinyWidgets)
 library(visNetwork); library(DT)
 library(tidyverse)
 source("Rmd.R")
+
+#```{r child = "01-CDISC.Rmd"}
+#```
+
+#```{r child = "02-SDTM.Rmd"}
+#```
+
 ```
 
 
 ```{r child = "00-REF.Rmd"}
 ```
 
-```{r child = "01-CDISC.Rmd"}
-```
-
-```{r child = "02-SDTM.Rmd"}
-```
-
 ```{r child = "03-SQL.Rmd"}
 ```
 
-```{r child = "04-TRICKS.Rmd"}
+```{r child = "04-ARRAYFMT.Rmd"}
+```
+
+```{r child = "05-SNIPPETS.Rmd"}
 ```

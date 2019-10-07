@@ -6,14 +6,11 @@ Column
 
 ### PROC SQL Advanced Notes
 
-Selective learning session from internal video course by Aku (2019-01-14-PROC_SQL)
+This column is based on selective learning session from internal video course by Aku (2019-01-14-PROC_SQL)
 
-March 2019
+Right two columns are collection of practices.
 
 _Code below does not include `PROC SQL; QUIT;` markup_
-
-Column
--------------------------------------
 
 ### Number of results unknown
 
@@ -50,10 +47,39 @@ select * from dictionary.columns
 </pre></p>
 
 
+Column
+-------------------------------------
+
+### How many floating ?
+
+<p><pre>
+proc sql;
+create table flt as 
+select max(lengthn(scan(put(aval, best.),2,'.'))), paramcd 
+from analysis.adlb group by paramcd;
+quit; 
+</pre></p>
+
+### Amazing Duplicates Finder
+
+<p><pre>
+create table dups as
+select * from no_val_dup group by usubjid, paramcd, adt
+having count(*) >= 2;
+</pre></p>
+
 Column 
 -------------------------------------
 
-### Practical Application
+
+### Join 3 Tables Implicitly
+
+<p><pre>
+select s.IdNum, Lname, City 'Hometown', Jobcat, Flight, Date
+      from proclib.schedule2 s, proclib.staff2 t, proclib.superv2 v
+      where s.idnum=t.idnum and t.idnum=v.supid;</pre></p>
+
+### SQL and Base SAS
 
 <p><pre>
 proc sql noprint;
@@ -72,10 +98,3 @@ run;
 
 `%str` quotes the result as SAS string
 
-### Amazing Duplicates Finder
-
-<p><pre>
-create table dups as
-select * from no_val_dup group by usubjid, paramcd, adt
-having count(*) >= 2;
-</pre></p>
