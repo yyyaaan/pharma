@@ -1,0 +1,124 @@
+Snippets {data-orientation=columns}
+=======================================================================
+
+Column
+-------------------------------------
+
+### Language and Encoding
+
+<p><pre>
+/*useful when few wrong character presents*/
+kcvt(dvterm, "utf-8", "wlatin1");
+
+/*find all non-standard symbols*/
+prxchange('s/[^[:ascii:]]/ /', -1, VARNAME);
+
+/*want a "μ" elegantly?*/
+byte(181)||"mol/L";
+</pre></p>
+
+More details and alternative from [Song and Koster (2016)](https://www.pharmasug.org/proceedings/2016/BB/PharmaSUG-2016-BB15.pdf) and [Hill and Howard(2013)](https://www.pharmasug.org/proceedings/2013/CC/PharmaSUG-2013-CC30.pdf)
+
+
+### StackODSOuput options
+
+<p><pre>
+proc means data=sashelp.class STACKODSOUTPUT sum mean std nway;
+class age;
+var height weight;
+ODS OUTPUT SUMMARY==with_stackods;
+run;
+</pre></p>
+
+This is very handy when proc is conducted with BY, and the option make all BY-group in a single data.
+
+Column
+-------------------------------------
+
+### Best PROC Compare
+
+<p><pre>
+proc compare 
+  b=...    c=...
+	outbase outcomp outdiff outnoeq out=checkdiff;
+run;</pre></p>
+
+Output a mutli-line dataset contains base, comp and diff.
+
+### PROC Transpose
+
+<p><pre><code class="sas">
+PROC TRANSPOSE data=input out=output;
+	by  [the combination to identify];
+	id  [move to column];
+	var [column to be transposed to row];
+RUN;
+
+/*ID-label help set Group N in proc report*/
+PROC TRANSPOSE data=tbl01 out=tbl02;
+		by      SOC PT;
+		var     out;
+		id      GRP; 
+		idlabel LBL;
+RUN;
+</code></pre></p>
+
+### SORT based on linguistic 
+
+<p><pre>
+PROC SORT sortseq=linguistic(Numeric_Collation=ON);
+  by vars;
+RUN;
+
+/*global option and SQL do NOT work*/
+options sort=linguistic;
+PROC SQL sortseq=linguistic; QUIT;
+</pre></p>
+
+Column
+-------------------------------------
+
+### PROC Tabulate/Report with Missing Rows
+
+<p><pre>
+proc format;
+	value $descvarf (notsorted)...	"Zzz" = " ";
+	value $cnsrcatf (notsorted)...	"Zzz" = " ";
+	value nozero 0=" " other=[5.0];
+run;
+
+proc tabulate s=[width = 1.6cm];
+	class   arm;  
+	classlev arm/s=[width=3.9cm];
+	class  _name_/ preloadfmt order=unformatted; 
+	format _name_ $descvarf.;
+	var   col1;
+	table (arm ="") * (_name_=""), 
+          (col1="") * (n*f=nozero. mean*f=11.1)
+	      /printmiss misstext=" ";
+run;
+
+proc report COMPLETEROWS;
+  ....
+  define _name / format=$descvarf. preloadfmt group; 
+run;
+</pre></p>
+
+Use formats can order outpus and assign blank rows. [REF](https://communities.sas.com/t5/ODS-and-Base-Reporting/Insert-Blank-Rows-into-Proc-Tabulate/td-p/591588) | [Intro to Tabulate](https://communities.sas.com/t5/ODS-and-Base-Reporting/Insert-Blank-Rows-into-Proc-Tabulate/td-p/591588)
+
+
+### Append a dataset
+
+<p><pre>
+PROC DATASETS library=work nolist;
+   append base=tmp data=tmp1 force;
+   delete tmp1;
+RUN;
+
+/*SQL solution*/
+PROC SQL;
+  select * from tmp OUTER UNION CORR tmp1;
+QUIT;
+</pre></p>
+
+This achieves union of two datasets and delete the temp one.

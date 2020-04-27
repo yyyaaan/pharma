@@ -1,0 +1,82 @@
+Surv/RPSFT/MSM {data-orientation=columns}
+=======================================================================
+
+Column
+-------------------------------------
+
+### Non-parametric Kaplan-Meier
+
+<p><pre>
+proc lifetest plots=survival(atrisk);
+	time   time * status(0);
+	strata arm;
+run;
+</pre></p>
+
+<p><pre>
+survfit (Surv(time, status) ~ 1)
+survdiff(Surv(time, status) ~ arm)
+ggsurvplot(fit)
+</pre></p>
+
+### Parametric Survival Curve Fitting
+
+<p><pre>
+proc lifereg;
+	class arm;
+	model time * status(0) = arm / dist=weibull;
+run;
+</pre></p>
+
+<p><pre>
+urvreg(Surv(time, status) ~ 1, dist = "Weibull")
+</pre></p>
+
+Common _dist_ are exponential, weibull, logistic, lognormal, gaussian, loglogistic, etc. There are minor differences in naming in _R_ and _SAS_.
+
+### Semi-parametric Cox Proportional Hazard
+
+<p><pre>
+proc phreg;
+	class arm;
+	model time * status(0) = arm;
+run;
+</pre></p>
+
+<p><pre>
+coxph(Surv(time, status) ~ arm)
+</pre></p>
+
+### Censor vs. Status and R
+
+The variable _status_ is binary with value 1 indicating observed events. _status_ is the inverse of _censor_ in general.
+
+`survival` offers necessary ananlysis functions; `survminer` provides simple plotting functions to fit objects;  `ggfortify` provides `autoplot()` using nice GGplots.
+
+
+Column
+-------------------------------------
+
+### RPSFT
+
+Apply the log-rank test to ITT, given $\psi$. Assuming the study is perfectly randomized, it should hole that $\chi^2=0$. Therefore, the algorithm search for $\hat\psi$ where $\chi^2$ is minimized in a Newton method.
+
+
+### Parameteric Fit using PRFST Counterfacts
+
+The goal is to preserve the $p$-value (equivalent to $\chi^2$) when counterfacts are not used, i.e. the $\chi^2_{ITT}$ based on observed set should be kept.
+
+Survival analysis have the equation $SE = \frac{\hat\beta}{\sqrt{\chi^2}}$ 
+
+Run the `proc lifereg` twice: (1) on the observations, recieving $\chi^2_{ITT}$; (2) on the counterfacts, usually observed treatment arm and counterfactual placebo arm. by the equations, and we find that $SE_{fix}= \frac {\hat\beta} {\sqrt{\chi^2_{ITT}}}$ is the easier way to restore the $\chi^2_{ITT}$ (adapted [Bennett et al. 2018](https://www.sciencedirect.com/science/article/pii/S1098301517303303)).
+
+
+Column
+-------------------------------------
+
+### MSM
+
+Marginal Structural Model
+
+
+

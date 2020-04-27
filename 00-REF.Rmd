@@ -26,29 +26,11 @@ datatable %>%
   summarize_at(c("var1", "var2"), fun)
 </pre></p>
 
-### SAS Proceedings List
+### SAS Proceedings
 
-20MAR Summary on Mixed Models
+[Regular Expression cheatsheet](/sas/regexp-tip-sheet.pdf)
 
-27MAR [Proc SQL | Macro Var & SQL](#section-proc-sql)
 
-03APR Subroutines and SAS functions
-
-10APR Functions and PROC IMPL (continued)
-
-17APR [Advanced topics of arrary, vname and do over](#section-arrayformat)
-
-24APR Oncology Pharma 
-
-02MAY [Proc Formats as a life-changer](#section-arrayformat)
-
-09MAY Oncology continued
-
-00JUL SAS Project organization and SVN exploration
-
-12AUG [Optimizing SAS EG's speed](#https://support.sas.com/resources/papers/proceedings14/SAS331-2014.pdf)
-
-14AUG [Proc Corresp](https://support.sas.com/documentation/cdl/en/statug/63347/HTML/default/viewer.htm#statug_corresp_sect005.htm)
 
 ### Characters
 

@@ -1,0 +1,72 @@
+Adv.Macro {data-orientation=columns}
+=======================================================================
+
+Column
+-------------------------------------
+
+### %Q-functions
+
+<p><pre>
+%let pgmpath = D:\svn\&sysuserid.%substr(%sysfunc(dequote(&_SASPROGRAMFILE.)), 3);
+
+%let pgmname = %qscan(%qscan(&_SASPROGRAMFILE., -1, '\'), 1, '.');
+</pre></p>
+
+Q-functions process the quoted macro vars. See [Dequote me on this](https://www.lexjansen.com/phuse/2014/cc/CC02.pdf).
+
+
+### Working with Special Characters
+
+Summary of function that mask characters
+
+| MACRO   | usages                                                  |
+|---------|---------------------------------------------------------|
+| %STR    | use ; as text                                           |
+| %NRSTR  | use % and & as text                                     |
+| %SUPERQ | use all special chars as text, NOT resolve macro within |
+| %BQUOTE | use all special chars as text, resolves macro within    |
+
+Q-functions will preserve the special characters. For example `%QSUBSTR`, `%QSCAN`, `QSYSFUNC` and `QLOWCASE`.
+
+Column
+-------------------------------------
+
+### SAS function with Macro Variables
+
+<p><pre>
+%EVAL(integer arithmetic)
+%SYSEVALF(arithmetic)
+%SYSFUNC(function())
+</pre></p>
+
+`EVAL` only work for INTEGER; while `SYSEVALF` uses floating point.
+
+
+Column
+-------------------------------------
+
+### My Do-Over Macro Vars
+
+<p><pre><code class="sas">
+%macro loopThem(loops);
+%do i = 1 %to %sysfunc(countw("&loops."));
+	%let cur_par = %scan(&loops., &i.) ;
+	%do_something_once(cur_par);
+%end;
+%mend loopThem;
+
+/*Sample Call*/
+%loopThem(loops = FASFL RSK1CTB RSK2CTB RSK3CTB);
+</code></pre><p>
+
+More application, see [Tight Looping With Macro Arrays ](https://support.sas.com/resources/papers/proceedings/proceedings/sugi31/040-31.pdf)
+
+### Function, instead of Macro
+
+<p><pre>
+proc fcmp outlib=work.yanfun.project;
+  function exampleFun(var_char $, var_num) $;
+	  return("some string");
+  endsub;
+run;
+</pre></p>
