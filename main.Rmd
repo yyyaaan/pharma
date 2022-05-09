@@ -109,7 +109,6 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 }
 </style>
 
-
 ```{js openInNew}
 var links = document.links;
 
@@ -126,33 +125,8 @@ library(visNetwork); library(DT)
 library(tidyverse)
 source("Rmd.R")
 
-rmd <- list.files(pattern = '*.Rmd', recursive = T)
-chunks <- paste0("```{r child = '", rmd, "'}\n```\n")
-cat(chunks, sep = '\n')
-
+rmds <- list.files(pattern = "[^main].Rmd")
 ```
 
-
-```{r child = "00-REF.Rmd"}
-```
-
-```{r child = "01-CDISC.Rmd"}
-```
-
-```{r child = "02-SDTM.Rmd"}
-```
-
-```{r child = "03-SQL.Rmd"}
-```
-
-```{r child = "04-ARRAYFMT.Rmd"}
-```
-
-```{r child = "05-MACROVAR.Rmd"}
-```
-
-```{r child = "06-NEWMODEL.Rmd"}
-```
-
-```{r child = "99-SNIPPETS.Rmd"}
+```{r child = rmds}
 ```

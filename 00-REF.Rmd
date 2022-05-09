@@ -26,11 +26,10 @@ datatable %>%
   summarize_at(c("var1", "var2"), fun)
 </pre></p>
 
-### SAS Proceedings
-
-[Regular Expression cheatsheet](/sas/regexp-tip-sheet.pdf)
-
-
+Work with List
+<p><pre>
+list %>% pluck(2)
+</pre></p>
 
 ### Characters
 
@@ -49,16 +48,13 @@ Column
 
 - [PROC tabulate](http://support.sas.com/resources/papers/proceedings09/039-2009.pdf)
 
-### PROC output styles
+### Pharmaceutical
 
-<p><pre>
-PROC MEANS noprint data=input;
-	by cohort; var bmi;
-	output out = output (drop = _freq_ _type_);
-PROC FREQ data=input
-  table var1 * var2 / out = output;
-RUN;
-</pre></p>
+[MediCalc](http://www.scymed.com/en/smnxph/phkcc770.htm)
+
+[Oncology @ phuse](https://www.phusewiki.org/wiki/index.php?title=Oncology)
+
+### ODS Trace
 
 ODS output can be accessed by enable trace
 
